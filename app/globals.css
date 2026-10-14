@@ -393,7 +393,7 @@
   color: #5A524B;
 }
 @media (max-width: 640px) {
-  .brand-strip { --bs-size: 62px; --bs-gap: 14px; padding: 20px 0 24px; }
+  .brand-strip { --bs-size: 62px; --bs-gap: 14px; padding: 8px 0 12px; }
   .brand-strip__row { padding: 0; }
   .brand-nav { display: none; }
   .brand-strip__viewport { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%); mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%); }
@@ -684,14 +684,7 @@
 .brand-strip { animation: hero-fade 0.8s ease 1.2s both; }
 @media (prefers-reduced-motion: reduce) { .brand-strip { animation: none; } }
 
-/* ---------- brand strip: faint dissolved-red glow, echoing the hero's burgundy ---------- */
-.brand-strip { overflow: hidden; isolation: isolate; }
-.brand-strip::before, .brand-strip::after {
-  content: ""; position: absolute; z-index: -1; pointer-events: none; border-radius: 50%; filter: blur(46px);
-}
-.brand-strip::before { left: -8%; top: -70%; width: 46%; height: 190%; background: radial-gradient(closest-side, rgba(165, 28, 39, 0.17), rgba(165, 28, 39, 0.05) 60%, transparent 100%); }
-.brand-strip::after { right: -6%; bottom: -80%; width: 42%; height: 180%; background: radial-gradient(closest-side, rgba(122, 16, 24, 0.14), rgba(122, 16, 24, 0.04) 62%, transparent 100%); }
-.brand-strip__viewport { position: relative; }
+/* ---------- brand strip: glow lives on the logo circles only ---------- */
 
 /* ---------- floating home button (appears once the hero has scrolled away) ---------- */
 .home-btn {
@@ -710,9 +703,9 @@
 @media (prefers-reduced-motion: reduce) { .home-btn, .home-btn[data-show="true"] { transition: none; } }
 
 /* ---------- soft dissolved-red glow behind every logo circle ---------- */
-.brand-strip__viewport { padding-block: 30px; }
-.brand-logo { box-shadow: 0 0 22px 4px rgba(165, 28, 39, 0.2), 0 0 56px 14px rgba(122, 16, 24, 0.1), 0 4px 14px -4px rgba(36, 35, 33, 0.18); }
-.brand-logo:hover { box-shadow: 0 0 26px 6px rgba(165, 28, 39, 0.32), 0 0 64px 18px rgba(122, 16, 24, 0.16), 0 10px 20px -6px rgba(36, 35, 33, 0.28); }
+.brand-strip__viewport { padding-block: 22px; }
+.brand-logo { box-shadow: 0 0 18px 3px rgba(165, 28, 39, 0.24), 0 0 30px 6px rgba(122, 16, 24, 0.1); }
+.brand-logo:hover { box-shadow: 0 0 22px 5px rgba(165, 28, 39, 0.36), 0 0 34px 8px rgba(122, 16, 24, 0.14); }
 
 /* ==========================================================================
    MOMENTS — fanned photo cards whose pictures keep changing
@@ -768,7 +761,8 @@ html, body { background-color: #F8ECE2; }
 .mo__tag { margin-top: clamp(16px, 2vw, 26px); }
 .mo__sub { margin-top: 0.7rem; }
 .mo__fan { height: clamp(330px, 40vw, 560px); margin-top: 0; }
-.brand-strip { padding-bottom: 22px; }
+.brand-strip { padding: 8px 0 12px; }
+.brand-strip__label { margin-top: 2px; }
 .jd__scene { margin-bottom: -1px; }
 
 /* ---------- closing CTA ---------- */
@@ -805,3 +799,24 @@ html, body { background-color: #F8ECE2; }
 .consult__title { margin: 0; font-family: var(--font-display), serif; font-weight: 500; font-size: clamp(2.4rem, 6.4vw, 5.4rem); line-height: 1; letter-spacing: -0.02em; }
 .consult__title em { display: block; font-style: italic; color: #f0b8b4; }
 .consult__copy { margin: 1.2rem 0 0; max-width: 40ch; font-size: 1.05rem; line-height: 1.6; color: rgba(248, 236, 226, 0.8); }
+
+
+/* ---------- typewriter section ---------- */
+.tw { background: #4a0b11; color: #f8ece2; padding: clamp(30px, 4vw, 56px) 0; position: relative; overflow: hidden; isolation: isolate; }
+.tw::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(50% 120% at 88% 0%, rgba(165, 28, 39, 0.55), transparent 70%); }
+.tw__wrap { width: min(100% - 2 * clamp(20px, 4.5vw, 72px), 1100px); margin-inline: auto; }
+.tw__title { margin: 0; font-family: var(--font-display), Georgia, serif; font-weight: 500; font-size: clamp(1.9rem, 4.6vw, 4rem); line-height: 1.08; letter-spacing: -0.02em; min-height: 2.2em; }
+.tw__typed { color: #f0b8b4; font-style: italic; white-space: pre-wrap; }
+.tw__caret { display: inline-block; width: 2px; height: 0.9em; margin-left: 4px; vertical-align: -0.08em; background: #f0b8b4; animation: tw-blink 1s steps(1) infinite; }
+@keyframes tw-blink { 50% { opacity: 0; } }
+.tw__copy { margin: clamp(10px, 1.4vw, 18px) 0 0; max-width: 46ch; font-size: clamp(0.98rem, 1.35vw, 1.15rem); line-height: 1.6; color: rgba(248, 236, 226, 0.78); }
+.tw__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(16px, 2vw, 24px); }
+.tw__btn { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 46px; padding: 0 1.4rem; border-radius: 8px; font: 600 0.95rem/1 var(--font-sans), sans-serif; text-decoration: none; transition: background-color 0.25s, color 0.25s, border-color 0.25s; }
+.tw__btn--solid { background: #f8ece2; color: #4a0b11; }
+.tw__btn--solid:hover { background: #fff; }
+.tw__btn--ghost { border: 1px solid rgba(248, 236, 226, 0.3); color: #f8ece2; background: rgba(20, 5, 7, 0.35); }
+.tw__btn--ghost:hover { border-color: #f0b8b4; }
+.tw__btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.tw__btn svg { flex: none; }
+@media (max-width: 699px) { .tw__title { min-height: 3.4em; } .tw__btn { flex: 1 1 100%; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .tw__caret { animation: none; } }

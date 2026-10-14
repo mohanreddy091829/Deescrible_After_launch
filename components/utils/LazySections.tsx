@@ -8,6 +8,7 @@ const ExpertiseSection = dynamic(() => import("@/components/expertise/ExpertiseS
 const SelectedWorkSection = dynamic(() => import("@/components/selected-work/SelectedWorkSection").then((m) => m.SelectedWorkSection));
 const DeescribbleSection = dynamic(() => import("@/components/deescribble/DeescribbleSection").then((m) => m.DeescribbleSection));
 const StoriesSection = dynamic(() => import("@/components/stories-beyond-brands/StoriesSection").then((m) => m.StoriesSection));
+const TypewriterSection = dynamic(() => import("@/components/typewriter/TypewriterSection").then((m) => m.TypewriterSection));
 const MomentsSection = dynamic(() => import("@/components/moments/MomentsSection").then((m) => m.MomentsSection));
 const ConsultationCta = dynamic(() => import("@/components/cta/ConsultationCta").then((m) => m.ConsultationCta));
 const Footer = dynamic(() => import("@/components/footer/Footer").then((m) => m.Footer));
@@ -15,6 +16,7 @@ const Footer = dynamic(() => import("@/components/footer/Footer").then((m) => m.
 export function LazySections() {
   return (
     <>
+      <TypewriterSection />
       <MomentsSection />
       <JourneySection />
       <ExpertiseSection />
