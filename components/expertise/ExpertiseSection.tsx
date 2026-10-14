@@ -179,7 +179,7 @@ export function ExpertiseSection() {
                   {selected.bestFor}
                 </p>
                 <a
-                  href="#booking"
+                  href="/consultation"
                   onClick={() => setSelected(null)}
                   className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#141211] px-5 py-2.5 font-sans text-sm font-bold text-white transition hover:bg-[#2E2926] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]"
                 >

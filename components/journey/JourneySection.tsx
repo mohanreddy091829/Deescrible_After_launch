@@ -202,7 +202,7 @@ export function JourneySection() {
         scrollTrigger: {
           trigger: jd,
           start: "top top",
-          end: () => `+=${Math.round(window.innerHeight * 5.2)}`,
+          end: () => `+=${Math.round(window.innerHeight * 4.4)}`,
           pin: true,
           scrub: 0.9,
           anticipatePin: 1,
@@ -454,7 +454,6 @@ export function JourneySection() {
                       <PinShape color={m.pin} />
                     </span>
                     <div className="jd__mtext">
-                      <span className="jd__year" data-j="mt">{m.period}</span>
                       <h3 className="jd__mtitle" data-j="mt">{m.title}</h3>
                       <p className="jd__mdesc" data-j="mt">{m.description}</p>
                     </div>
@@ -527,7 +526,6 @@ export function JourneySection() {
                       <PinShape color={m.pin} />
                     </span>
                     <div className="jm__mtext">
-                      <span className="jd__year" data-j="mt">{m.period}</span>
                       <h3 className="jd__mtitle" data-j="mt">{m.title}</h3>
                       <p className="jd__mdesc" data-j="mt">{m.description}</p>
                     </div>

@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useMemo, useState, useSyncExternalStore } from "react";
-import Image from "next/image";
 import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 
-const SERVICES = ["Brand strategy & campaigns", "Founder & personal branding", "Content strategy & storytelling", "Speaking & collaboration"];
 const TYPES = ["General consultation (30 mins)", "Brand strategy advisory (45 mins)", "Founder narrative (45 mins)", "Speaking & documentary collaboration"];
 const SLOTS = ["10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM"];
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -14,7 +12,7 @@ const field =
   "w-full rounded-xl border border-[#141211]/12 bg-white/70 px-3.5 py-2.5 font-sans text-[13px] text-[#141211] placeholder:text-[#6B645D] focus:outline-none focus:ring-2 focus:ring-[#A51C27]/60";
 const label = "mb-1.5 block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[#6B645D]";
 
-export function BookingSection() {
+export function ConsultationBooking() {
   // Server renders a fixed start (Oct 2026); the browser swaps in the real "today" without a hydration mismatch.
   const nowMs = useSyncExternalStore(() => () => {}, () => Date.now() - (Date.now() % 86400000), () => Date.UTC(2026, 9, 9));
   const today = useMemo(() => new Date(nowMs), [nowMs]);
@@ -41,46 +39,9 @@ export function BookingSection() {
   const dateLabel = day ? `${MONTHS[view.m]} ${day}, ${view.y}` : "";
 
   return (
-    <section id="booking" className="relative isolate overflow-hidden bg-[#F3E3CB] py-12 sm:py-16" aria-label="Let's talk and consultation booking">
-      {/* 3200px sunset ghat; warm wash on the left, paper on the right so the card stays legible */}
-      <Image src="/assets/letstalk/sunset-ghat.webp" alt="" fill quality={90} sizes="100vw" className="-z-20 object-cover object-[30%_40%]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(247,235,214,.78)_0%,rgba(247,235,214,.55)_38%,rgba(250,246,238,.88)_70%,rgba(250,246,238,.96)_100%)] max-lg:bg-[linear-gradient(180deg,rgba(247,235,214,.6),rgba(250,246,238,.92)_55%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-60 mix-blend-multiply" style={{ backgroundImage: "var(--paper-grain)" }} aria-hidden="true" />
-
-      <div className="mx-auto grid max-w-[1360px] items-center gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
-        <div className="relative">
-          <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2E2926]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#A51C27]" />
-            <span>06 / Let&apos;s work together</span>
-          </div>
-          <h2 className="font-serif text-[clamp(38px,4.8vw,68px)] font-normal leading-[1] tracking-[-0.03em] text-[#141211]">
-            Let&apos;s create
-            <br />
-            <span className="italic">what&apos;s next.</span>
-          </h2>
-          <p className="mt-4 max-w-md font-sans text-[15px] leading-relaxed text-[#2e2b27]">
-            If you&apos;re a brand, founder or fellow dreamer with a story idea — let&apos;s have a conversation.
-          </p>
-          <ul className="mt-5 space-y-2.5">
-            {SERVICES.map((s) => (
-              <li key={s} className="flex items-center gap-3 font-sans text-[14px] font-medium text-[#141211]">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#141211]/70 bg-white/40">
-                  <ArrowRight className="h-2.5 w-2.5" strokeWidth={3} />
-                </span>
-                {s}
-              </li>
-            ))}
-          </ul>
-          <p className="font-script mt-6 hidden -rotate-6 text-[26px] leading-[1.05] text-[#fff8ec] drop-shadow-[0_2px_6px_rgba(80,40,10,.6)] lg:block">
-            Bigger
-            <br />
-            Stories
-            <br />
-            Ahead…
-          </p>
-        </div>
-
-        <div className="relative rounded-[26px] border border-white/70 bg-[#fbf8f2]/90 p-5 shadow-[0_30px_60px_-30px_rgba(60,35,15,.55)] backdrop-blur-md sm:p-7">
+    <section id="booking" className="relative bg-[#F8ECE2] pb-20 pt-10 sm:pb-28" aria-label="Consultation booking">
+      <div className="mx-auto max-w-3xl px-5 sm:px-8">
+        <div className="relative rounded-[4px] border border-[#141211]/15 bg-white p-6 shadow-[0_30px_60px_-40px_rgba(90,11,18,.5)] sm:p-9">
           {done ? (
             <div className="space-y-4 py-8 text-center">
               <CheckCircle2 className="mx-auto h-12 w-12 text-[#A51C27]" />
@@ -189,9 +150,6 @@ export function BookingSection() {
           )}
         </div>
       </div>
-      <p className="relative mx-auto mt-4 max-w-[1360px] px-5 font-sans text-[10.5px] text-[#5A524B] sm:px-8">
-        Photo: Sunset at Dr Rajendra Prasad Ghat by Jay.Jarosz, CC BY-SA 4.0, via Wikimedia Commons.
-      </p>
     </section>
   );
 }

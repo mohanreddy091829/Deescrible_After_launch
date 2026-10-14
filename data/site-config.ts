@@ -30,7 +30,7 @@ export const SITE_CONFIG = {
     { label: "Work", href: "#work" },
     { label: "Deescribble", href: "#deescribble" },
     { label: "Ideas", href: "#ideas" },
-    { label: "Let's Talk", href: "#booking" },
+    { label: "Let's Talk", href: "#cta" },
   ] as NavItem[],
   heroNav: [
     { label: "ABOUT", href: "#journey" },
@@ -42,5 +42,5 @@ export const SITE_CONFIG = {
   quickNavLinks: [
     { label: "WORKS", href: "#work" },
   ] as NavItem[],
-  bookingCta: { label: "Book a Consultation", href: "#booking" },
+  bookingCta: { label: "Book a Consultation", href: "/consultation" },
 };

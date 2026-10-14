@@ -5,5 +5,6 @@ import { SITE_URL } from "@/lib/site";
 const LAST_UPDATED = "2026-10-09";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: SITE_URL, lastModified: LAST_UPDATED, changeFrequency: "monthly", priority: 1 }];
+  return [
+    { url: `${SITE_URL}/consultation`, lastModified: new Date("2026-10-15"), changeFrequency: "yearly", priority: 0.7 },{ url: SITE_URL, lastModified: LAST_UPDATED, changeFrequency: "monthly", priority: 1 }];
 }

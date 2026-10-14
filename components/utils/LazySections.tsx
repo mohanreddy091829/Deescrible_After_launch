@@ -9,7 +9,7 @@ const SelectedWorkSection = dynamic(() => import("@/components/selected-work/Sel
 const DeescribbleSection = dynamic(() => import("@/components/deescribble/DeescribbleSection").then((m) => m.DeescribbleSection));
 const StoriesSection = dynamic(() => import("@/components/stories-beyond-brands/StoriesSection").then((m) => m.StoriesSection));
 const MomentsSection = dynamic(() => import("@/components/moments/MomentsSection").then((m) => m.MomentsSection));
-const BookingSection = dynamic(() => import("@/components/booking/BookingSection").then((m) => m.BookingSection));
+const ConsultationCta = dynamic(() => import("@/components/cta/ConsultationCta").then((m) => m.ConsultationCta));
 const Footer = dynamic(() => import("@/components/footer/Footer").then((m) => m.Footer));
 
 export function LazySections() {
@@ -21,7 +21,7 @@ export function LazySections() {
       <SelectedWorkSection />
       <DeescribbleSection />
       <StoriesSection />
-      <BookingSection />
+      <ConsultationCta />
       <Footer />
     </>
   );

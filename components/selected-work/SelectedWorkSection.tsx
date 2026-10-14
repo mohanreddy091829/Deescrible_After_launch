@@ -260,7 +260,7 @@ export function SelectedWorkSection() {
                     <span key={t} className="rounded-full bg-[#F1DFD2] px-2.5 py-1 font-sans text-[11px] text-[#2E2926]">{t}</span>
                   ))}
                 </div>
-                <a href="#booking" onClick={() => setSelected(null)} className="inline-flex items-center gap-2 rounded-full bg-[#141211] px-5 py-2.5 font-sans text-sm font-bold text-white transition hover:bg-[#2E2926] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]">
+                <a href="/consultation" onClick={() => setSelected(null)} className="inline-flex items-center gap-2 rounded-full bg-[#141211] px-5 py-2.5 font-sans text-sm font-bold text-white transition hover:bg-[#2E2926] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]">
                   Discuss a similar brief <ArrowRight className="h-4 w-4" strokeWidth={2.4} />
                 </a>
               </div>
