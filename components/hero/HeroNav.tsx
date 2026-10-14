@@ -2,45 +2,67 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { NoiseBackground } from "@/components/ui/noise-background";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 
-/** Plain bold sans links + one highlighted "Book a Consultation" noise-gradient button. */
+/** Five section links, the consultation pill and a round menu button that opens the full-screen menu. */
 export function HeroNav() {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(true);
+  const [open, setOpen] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const openRef = useRef<HTMLButtonElement>(null);
 
-  // The gradient runs a frame loop; stop it whenever the hero is scrolled out of view.
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    if (!open) return;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", esc);
+    const trigger = openRef.current;
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", esc);
+      trigger?.focus();
+    };
+  }, [open]);
 
   return (
-    <nav ref={ref} className="hero__nav" aria-label="Hero quick navigation">
-      {SITE_CONFIG.quickNavLinks.map((item) => (
-        <Link key={item.label} href={item.href} className="hero__link">
-          {item.label}
-        </Link>
-      ))}
+    <>
+      <nav className="rh__nav" aria-label="Primary">
+        <div className="rh__links">
+          {SITE_CONFIG.heroNav.map((item) => (
+            <Link key={item.label} href={item.href} className="rh__link">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="rh__navend">
+          <Link href={SITE_CONFIG.bookingCta.href} className="rh__cta">
+            Book a Consultation <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+          </Link>
+          <button ref={openRef} className="rh__menu" aria-label="Open menu" aria-expanded={open} aria-controls="rh-menu" onClick={() => setOpen(true)}>
+            <Menu size={22} strokeWidth={1.6} />
+          </button>
+        </div>
+      </nav>
 
-      <NoiseBackground
-        containerClassName="hero__cta w-fit rounded-full p-[3px] !bg-neutral-900"
-        gradientColors={["rgb(255, 100, 150)", "rgb(100, 150, 255)", "rgb(255, 200, 100)"]}
-        animating={visible}
-      >
-        <Link
-          href={SITE_CONFIG.bookingCta.href}
-          className="flex h-full w-full cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-black px-[1.15em] py-[0.8em] font-sans text-[length:inherit] font-bold tracking-[0.01em] text-white transition-transform duration-100 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e0713a]"
-        >
-          {SITE_CONFIG.bookingCta.label}
-          <ArrowRight className="size-[1.1em]" strokeWidth={2.4} aria-hidden="true" />
+      <div id="rh-menu" className="rh-sheet" data-open={open} role="dialog" aria-modal="true" aria-label="Menu" aria-hidden={!open} inert={!open}>
+        <div className="rh-sheet__top">
+          <span>Dedeepya Abbagani</span>
+          <button ref={closeRef} className="rh__menu rh__menu--light" aria-label="Close menu" onClick={() => setOpen(false)}>
+            <X size={22} strokeWidth={1.6} />
+          </button>
+        </div>
+        <div className="rh-sheet__links">
+          {[...SITE_CONFIG.heroNav, { label: "HOME", href: "#hero" }].map((item) => (
+            <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <Link href={SITE_CONFIG.bookingCta.href} className="rh__cta rh__cta--light" onClick={() => setOpen(false)}>
+          Book a Consultation <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
         </Link>
-      </NoiseBackground>
-    </nav>
+      </div>
+    </>
   );
 }

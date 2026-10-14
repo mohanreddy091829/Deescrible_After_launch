@@ -1,54 +1,67 @@
 import React from "react";
 import Image from "next/image";
-import { BrushCanvas } from "./BrushCanvas";
+import { ArrowUpRight } from "lucide-react";
 import { HeroNav } from "./HeroNav";
+import { HeroName } from "./HeroName";
 import { SITE_CONFIG } from "@/data/site-config";
 
 /**
- * Minimal editorial hero. Everything except the portrait is live type / code:
- * canvas brush strokes, CSS-animated headline, liquid-glass navigation.
- * Entrance choreography is pure CSS so nothing is hidden waiting on JavaScript.
+ * Editorial hero. Everything except the photograph is live code: tracked eyebrow, Didone title, the halftone
+ * name (canvas), the curved red panel, vertical keywords and scroll cue. Entrance is CSS-only.
  */
 export function HeroSection() {
   const [first, last] = SITE_CONFIG.name.toUpperCase().split(" ");
 
   return (
-    <section id="hero" className="hero" aria-label={`Hero — ${SITE_CONFIG.name}`}>
-      <div className="hero__stage">
-        <BrushCanvas className="hero__canvas" />
+    <section id="hero" className="rh" aria-label={`Hero — ${SITE_CONFIG.name}`}>
+      <div className="rh__stage">
+        <div className="rh__light" aria-hidden="true" />
 
-        <div className="hero__box">
-          <div className="hero__portrait">
-            <Image
-              src="/assets/hero/portrait.webp"
-              alt="Dedeepya Abbagani looking upward with a confident smile"
-              width={1367}
-              height={1150}
-              priority
-              quality={92}
-              sizes="(max-width: 899px) 84vw, 40vw"
-            />
-          </div>
-
-          <h1 className="hero__name" aria-label={SITE_CONFIG.name}>
-            <span className="hero__line" aria-hidden="true"><span>{first}</span></span>
-            <span className="hero__line" aria-hidden="true"><span>{last}</span></span>
-          </h1>
-
-          <div className="hero__intro">
-            <p className="hero__role">
-              Branding Expert &amp;
-              <br />
-              Strategy Consultant
-            </p>
-            <span className="hero__rule" aria-hidden="true" />
-            <p className="hero__lede">
-              Turning complex ideas into stories that connect, convert and create real impact.
-            </p>
-          </div>
-
-          <HeroNav />
+        <div className="rh__panel">
+          <Image
+            src="/assets/hero/dedeepya-red.webp"
+            alt="Dedeepya Abbagani in dark sunglasses and a black top against a deep red studio backdrop"
+            width={4043}
+            height={4096}
+            priority
+            quality={88}
+            sizes="(max-width: 899px) 140vw, 96vw"
+            className="rh__photo"
+          />
+          <div className="rh__shade" aria-hidden="true" />
         </div>
+        <svg className="rh__arc" viewBox="0 0 100 47" preserveAspectRatio="none" aria-hidden="true">
+          <circle cx="114.5" cy="59.9" r="68" fill="none" vectorEffect="non-scaling-stroke" />
+        </svg>
+
+        <HeroNav />
+
+        <div className="rh__copy">
+          <p className="rh__eyebrow">Brands <i>/</i> Strategy <i>/</i> Storytelling</p>
+          <p className="rh__title">
+            Branding Expert &amp;
+            <em>Strategy Consultant</em>
+          </p>
+          <span className="rh__rule" aria-hidden="true" />
+          <p className="rh__lede">Turning complex ideas into stories that connect, convert and create real impact.</p>
+          <a href={SITE_CONFIG.bookingCta.href} className="rh__cta rh__mcta">
+            Book a Consultation <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+          </a>
+        </div>
+
+        <HeroName first={first} last={last} />
+
+        <ul className="rh__keys" aria-label="Themes">
+          <li>Ideas</li>
+          <li>People</li>
+          <li>Culture</li>
+          <li>Impact</li>
+        </ul>
+
+        <a href="#brands" className="rh__scroll" aria-label="Scroll to the next section">
+          <span className="rh__scrollring" aria-hidden="true"><b /></span>
+          <span className="rh__scrolltext">Scroll</span>
+        </a>
       </div>
     </section>
   );

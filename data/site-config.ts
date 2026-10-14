@@ -32,6 +32,13 @@ export const SITE_CONFIG = {
     { label: "Ideas", href: "#ideas" },
     { label: "Let's Talk", href: "#booking" },
   ] as NavItem[],
+  heroNav: [
+    { label: "ABOUT", href: "#journey" },
+    { label: "WORK", href: "#work" },
+    { label: "SERVICES", href: "#expertise" },
+    { label: "SPEAKING", href: "#ideas" },
+    { label: "COMMUNITY", href: "#deescribble" },
+  ] as NavItem[],
   quickNavLinks: [
     { label: "WORKS", href: "#work" },
   ] as NavItem[],
