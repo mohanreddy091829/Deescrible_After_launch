@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-7 pb-8 border-b border-[#141211]/10">
           {/* Left: name, positioning, contact */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <h4 className="font-serif text-xl text-[#141211] sm:text-2xl">Dedeepya Abbagani</h4>
+            <p className="font-serif text-xl text-[#141211] sm:text-2xl">Dedeepya Abbagani</p>
             <p className="mt-1 font-sans text-[13px] text-[#5A524B]">Branding Expert | Strategy Consultant | Storyteller</p>
             <div className="mt-4 flex flex-col gap-1.5 font-sans text-[13.5px] text-[#141211]">
               <a href={`mailto:${SITE_CONFIG.enquiryEmail}`} className="inline-flex items-center justify-center gap-2 hover:text-[#A51C27] md:justify-start"><Mail className="h-4 w-4" />{SITE_CONFIG.enquiryEmail}</a>

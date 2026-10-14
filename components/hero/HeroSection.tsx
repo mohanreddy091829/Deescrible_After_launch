@@ -24,8 +24,8 @@ export function HeroSection() {
             width={4043}
             height={4096}
             priority
-            quality={88}
-            sizes="(max-width: 899px) 140vw, 96vw"
+            quality={75}
+            sizes="(max-width: 899px) 120vw, 66vw"
             className="rh__photo"
           />
           <div className="rh__shade" aria-hidden="true" />

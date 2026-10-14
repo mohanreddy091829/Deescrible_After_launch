@@ -681,7 +681,7 @@
 @media (prefers-reduced-motion: reduce) { .reel-row { scroll-behavior: auto; } .reel-card { transition: none; } }
 
 /* The hero choreography leads; the logo strip settles in after it so it never competes for first sight. */
-.brand-strip { animation: hero-fade 0.8s ease 1.2s both; }
+.brand-strip { animation: none; }
 @media (prefers-reduced-motion: reduce) { .brand-strip { animation: none; } }
 
 /* ---------- brand strip: glow lives on the logo circles only ---------- */
