@@ -40,7 +40,7 @@ const DESCRIPTION =
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#5A0B12",
 };
 
 export const metadata: Metadata = {
@@ -93,7 +93,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${plusJakarta.variable} ${caveat.variable} ${display.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#F7F3EA] text-[#242321] font-sans antialiased selection:bg-[#D5AA67]/25 selection:text-[#242321]">
+      <body className="min-h-screen bg-[#F8ECE2] text-[#141211] font-sans antialiased selection:bg-[#C78B87]/25 selection:text-[#141211]">
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       </body>

@@ -4,10 +4,10 @@ import React from "react";
 export function Plane() {
   return (
     <g strokeLinejoin="round" strokeLinecap="round">
-      <path d="M18 0 L-18 -12 L-8 0Z" fill="#fbf8f1" stroke="#3b342c" strokeWidth="1" />
-      <path d="M18 0 L-8 0 L-15 8Z" fill="#e3dbc9" stroke="#3b342c" strokeWidth="1" />
-      <path d="M-8 0 L-18 -12 L-14 -1Z" fill="#cfc6b2" stroke="#3b342c" strokeWidth=".7" />
-      <path d="M18 0 L-8 0" stroke="#3b342c" strokeWidth=".8" />
+      <path d="M18 0 L-18 -12 L-8 0Z" fill="#FCF3EC" stroke="#2E2926" strokeWidth="1" />
+      <path d="M18 0 L-8 0 L-15 8Z" fill="#e3dbc9" stroke="#2E2926" strokeWidth="1" />
+      <path d="M-8 0 L-18 -12 L-14 -1Z" fill="#cfc6b2" stroke="#2E2926" strokeWidth=".7" />
+      <path d="M18 0 L-8 0" stroke="#2E2926" strokeWidth=".8" />
     </g>
   );
 }

@@ -15,12 +15,12 @@ const Footer = dynamic(() => import("@/components/footer/Footer").then((m) => m.
 export function LazySections() {
   return (
     <>
+      <MomentsSection />
       <JourneySection />
       <ExpertiseSection />
       <SelectedWorkSection />
       <DeescribbleSection />
       <StoriesSection />
-      <MomentsSection />
       <BookingSection />
       <Footer />
     </>

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { MOMENTS, type MomentCard } from "@/data/moments";
+import { SITE_CONFIG } from "@/data/site-config";
 
 const CYCLE_MS = 3200;
 
@@ -73,11 +74,9 @@ export function MomentsSection() {
   return (
     <section id="moments" ref={root} className="mo" aria-labelledby="mo-title">
       <div className="mo__head">
-        <p className="mo__eyebrow">Moments</p>
-        <h2 id="mo-title" className="mo__title">
-          Work, people and <em>places</em> along the way.
-        </h2>
-        <p className="mo__sub">A rolling set of frames from brand work, stages, stories and the places that shaped them.</p>
+        <h2 id="mo-title" className="mo__title">About Me</h2>
+        <p className="mo__sub">{SITE_CONFIG.bioSummary}</p>
+        <p className="mo__tag">Stories, stages and places that shaped the work</p>
       </div>
       <div className="mo__fan">
         {MOMENTS.map((c, i) => (

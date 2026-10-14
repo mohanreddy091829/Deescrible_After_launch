@@ -13,7 +13,7 @@ import {
 import { PinShape, Plane } from "./Sketch";
 import { PIN_TIMES, T_END, T_LAND, armAngle, lean, mobileArc, planePose, rise } from "./throw";
 
-const INK = "#3b342c";
+const INK = "#2E2926";
 const pct = (v: number, of: number) => `${(v / of) * 100}%`;
 
 /** Sketched mountains and sun. The same art renders on desktop (wide) and mobile (cropped). */
@@ -39,12 +39,12 @@ function Mountains({ id, viewBox, cls, par }: { id: string; viewBox: string; cls
       <svg {...svg} data-j="sun">
         <defs>
           <radialGradient id={`${id}-sun`} cx=".42" cy=".4" r=".7">
-            <stop offset="0" stopColor="#f6b86f" /><stop offset=".6" stopColor="#ec8f42" /><stop offset="1" stopColor="#dc702c" />
+            <stop offset="0" stopColor="#e9b1ad" /><stop offset=".6" stopColor="#c9525a" /><stop offset="1" stopColor="#a51c27" />
           </radialGradient>
           <clipPath id={`${id}-sc`}><path d={SUN_CLIP} /></clipPath>
         </defs>
         <g clipPath={`url(#${id}-sc)`}>
-          <circle cx={SUN.cx} cy={SUN.cy} r={SUN.r + 15} fill="none" stroke="#e98a3f" strokeWidth="1" opacity=".35" />
+          <circle cx={SUN.cx} cy={SUN.cy} r={SUN.r + 15} fill="none" stroke="#c9525a" strokeWidth="1" opacity=".35" />
           <circle cx={SUN.cx} cy={SUN.cy} r={SUN.r} fill={`url(#${id}-sun)`} />
         </g>
       </svg>
@@ -56,7 +56,7 @@ function Mountains({ id, viewBox, cls, par }: { id: string; viewBox: string; cls
           </linearGradient>
         </defs>
         {/* opaque paper tone underneath so the sun can never show through the mountain */}
-        <path d={ART.mid.wash} fill="#e3d8c1" />
+        <path d={ART.mid.wash} fill="#EBD6C8" />
         <path d={ART.mid.wash} fill={`url(#${id}-gm)`} />
         <g clipPath={`url(#${id}-cm)`}><path d={ART.mid.hatch} fill="none" stroke="#3b3128" strokeWidth=".9" opacity=".6" /></g>
       </svg>
@@ -77,7 +77,7 @@ function HangingLetter({ cls }: { cls: string }) {
     <div className={cls} data-j="fold" aria-hidden="true">
       <div className="jd__sway" data-j="sway">
         <svg viewBox="0 0 240 110" className="jd__threads" data-j="threads">
-          <circle cx="120" cy="7" r="5.5" fill="#6b5f50" stroke="#3b342c" strokeWidth="1.2" />
+          <circle cx="120" cy="7" r="5.5" fill="#6b5f50" stroke="#2E2926" strokeWidth="1.2" />
           <path d="M120 8L46 112M120 8L194 112" stroke="#6b5f50" strokeWidth="1.3" fill="none" strokeLinecap="round" />
         </svg>
         <div className="jd__letter">
@@ -85,11 +85,11 @@ function HangingLetter({ cls }: { cls: string }) {
             <path data-j="scribble" d={SCRIBBLE} pathLength={1} fill="none" stroke="#4a4036" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="1" strokeDashoffset="0" opacity=".8" />
           </svg>
           <svg viewBox="0 0 240 170" className="jd__sheet">
-            <path d="M14 16 L226 8 L233 155 L9 162Z" fill="#f4eee0" stroke="#3b342c" strokeWidth="1.6" strokeLinejoin="round" />
+            <path d="M14 16 L226 8 L233 155 L9 162Z" fill="#f4eee0" stroke="#2E2926" strokeWidth="1.6" strokeLinejoin="round" />
             <path d="M14 16 L122 90 L9 162Z" fill="#e6dec9" />
             <path d="M226 8 L122 90 L233 155Z" fill="#ebe4d1" />
-            <path d="M14 16 L122 90 L226 8M9 162 L122 90 L233 155" fill="none" stroke="#3b342c" strokeWidth="1.1" opacity=".55" />
-            <path d="M200 8 L226 8 L226 34Z" fill="#d9d0ba" stroke="#3b342c" strokeWidth=".9" />
+            <path d="M14 16 L122 90 L226 8M9 162 L122 90 L233 155" fill="none" stroke="#2E2926" strokeWidth="1.1" opacity=".55" />
+            <path d="M200 8 L226 8 L226 34Z" fill="#d9d0ba" stroke="#2E2926" strokeWidth=".9" />
           </svg>
         </div>
       </div>
@@ -411,27 +411,27 @@ export function JourneySection() {
                 <path d={PANEL.grit} fill="none" stroke="#d8c7a4" strokeWidth=".8" opacity=".16" strokeLinecap="round" />
                 <path d={TERRAIN.scratches} fill="none" stroke="#8a6c4f" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" opacity=".42" />
                 <path d={TERRAIN.shrubs} fill="#1d1b18" />
-                <path d={TERRAIN.shrubHi} fill="none" stroke="#c9a25b" strokeWidth="1" opacity=".55" strokeLinecap="round" />
-                <path d={TERRAIN.rockBody} fill="#2b2825" stroke="#0e0d0c" strokeWidth="1.1" strokeLinejoin="round" />
-                <path d={TERRAIN.rockFacet} fill="none" stroke="#0e0d0c" strokeWidth="1" opacity=".7" strokeLinecap="round" />
+                <path d={TERRAIN.shrubHi} fill="none" stroke="#C78B87" strokeWidth="1" opacity=".55" strokeLinecap="round" />
+                <path d={TERRAIN.rockBody} fill="#2b2825" stroke="#141211" strokeWidth="1.1" strokeLinejoin="round" />
+                <path d={TERRAIN.rockFacet} fill="none" stroke="#141211" strokeWidth="1" opacity=".7" strokeLinecap="round" />
                 <path d={TERRAIN.rockHi} fill="none" stroke="#9a8160" strokeWidth="1.1" opacity=".75" strokeLinecap="round" strokeLinejoin="round" />
-                <path d={TERRAIN.grassDark} fill="none" stroke="#1b1916" strokeWidth="1.5" strokeLinecap="round" />
-                <path d={TERRAIN.grassGold} fill="none" stroke="#b8933f" strokeWidth="1.3" strokeLinecap="round" opacity=".85" />
-                <path d={PANEL.tornBottom} fill="#f7f3ea" />
+                <path d={TERRAIN.grassDark} fill="none" stroke="#141211" strokeWidth="1.5" strokeLinecap="round" />
+                <path d={TERRAIN.grassGold} fill="none" stroke="#C78B87" strokeWidth="1.3" strokeLinecap="round" opacity=".85" />
+                <path d={PANEL.tornBottom} fill="#F8ECE2" />
               </svg>
               <svg viewBox={VIEWBOX} preserveAspectRatio="none" className="jd__layer" data-j="gold" aria-hidden="true">
                 <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <path data-j="gold-left" d={GOLD_LEFT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#f0c777" strokeWidth="9" opacity=".16" />
-                  <path data-j="gold-left" d={GOLD_LEFT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#e8b95f" strokeWidth="2.6" />
-                  <path data-j="gold-right" d={GOLD_RIGHT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#f0c777" strokeWidth="9" opacity=".16" />
-                  <path data-j="gold-right" d={GOLD_RIGHT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#e8b95f" strokeWidth="2.6" />
+                  <path data-j="gold-left" d={GOLD_LEFT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#C78B87" strokeWidth="9" opacity=".16" />
+                  <path data-j="gold-left" d={GOLD_LEFT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#C78B87" strokeWidth="2.6" />
+                  <path data-j="gold-right" d={GOLD_RIGHT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#C78B87" strokeWidth="9" opacity=".16" />
+                  <path data-j="gold-right" d={GOLD_RIGHT} pathLength={1} strokeDasharray="1" strokeDashoffset="0" stroke="#C78B87" strokeWidth="2.6" />
                 </g>
               </svg>
 
               <Walker cls="jd__girl" style={girlStyle} />
               <svg viewBox={VIEWBOX} preserveAspectRatio="none" className="jd__layer" data-j="fg" aria-hidden="true">
-                <path d={FOOT_GRASS.dark} fill="none" stroke="#1b1916" strokeWidth="1.6" strokeLinecap="round" />
-                <path d={FOOT_GRASS.gold} fill="none" stroke="#b8933f" strokeWidth="1.4" strokeLinecap="round" opacity=".9" />
+                <path d={FOOT_GRASS.dark} fill="none" stroke="#141211" strokeWidth="1.6" strokeLinecap="round" />
+                <path d={FOOT_GRASS.gold} fill="none" stroke="#C78B87" strokeWidth="1.4" strokeLinecap="round" opacity=".9" />
               </svg>
 
               <svg viewBox={VIEWBOX} preserveAspectRatio="none" className="jd__layer" aria-hidden="true">
@@ -468,7 +468,7 @@ export function JourneySection() {
             </svg>
             <svg viewBox="0 0 120 120" className="jd__curl" data-j="curl" aria-hidden="true">
               <path d="M0 0H120L0 120Z" fill="#2a2623" />
-              <path d="M0 0H92C70 30 34 62 0 92Z" fill="#f1e9d8" stroke="#3b342c" strokeWidth=".8" />
+              <path d="M0 0H92C70 30 34 62 0 92Z" fill="#f1e9d8" stroke="#2E2926" strokeWidth=".8" />
               <path d="M92 0C70 30 34 62 0 92" fill="none" stroke="#8d8372" strokeWidth="3" opacity=".25" />
             </svg>
           </div>
@@ -498,23 +498,23 @@ export function JourneySection() {
 
         <div className="jm__panel">
           <svg viewBox={MR.viewBox} preserveAspectRatio="xMinYMin slice" className="jm__ridge" aria-hidden="true">
-            <path d={MR.body} fill="#1d1b19" />
+            <path d={MR.body} fill="#141211" />
             <path d={MR.shrubs} fill="#1d1b18" />
-            <path d={MR.shrubHi} fill="none" stroke="#c9a25b" strokeWidth="1" opacity=".55" strokeLinecap="round" />
-            <path d={MR.rockBody} fill="#2b2825" stroke="#0e0d0c" strokeWidth="1" strokeLinejoin="round" />
-            <path d={MR.rockFacet} fill="none" stroke="#0e0d0c" strokeWidth=".9" opacity=".7" strokeLinecap="round" />
+            <path d={MR.shrubHi} fill="none" stroke="#C78B87" strokeWidth="1" opacity=".55" strokeLinecap="round" />
+            <path d={MR.rockBody} fill="#2b2825" stroke="#141211" strokeWidth="1" strokeLinejoin="round" />
+            <path d={MR.rockFacet} fill="none" stroke="#141211" strokeWidth=".9" opacity=".7" strokeLinecap="round" />
             <path d={MR.rockHi} fill="none" stroke="#9a8160" strokeWidth="1" opacity=".75" strokeLinecap="round" strokeLinejoin="round" />
-            <path d={MR.grassDark} fill="none" stroke="#1b1916" strokeWidth="1.4" strokeLinecap="round" />
-            <path d={MR.grassGold} fill="none" stroke="#b8933f" strokeWidth="1.2" strokeLinecap="round" opacity=".85" />
-            <path d={MR.gold} fill="none" stroke="#e8b95f" strokeWidth="2.2" strokeLinecap="round" />
+            <path d={MR.grassDark} fill="none" stroke="#141211" strokeWidth="1.4" strokeLinecap="round" />
+            <path d={MR.grassGold} fill="none" stroke="#C78B87" strokeWidth="1.2" strokeLinecap="round" opacity=".85" />
+            <path d={MR.gold} fill="none" stroke="#C78B87" strokeWidth="2.2" strokeLinecap="round" />
           </svg>
           <Walker cls="jm__girl" style={{ left: MR.feetX - GIRL.ax * (74 / GIRL.w), top: MR.feetY - 22 + 2 - GIRL.ay * (74 / GIRL.w), width: 74 }} />
 
           <div className="jm__listwrap" data-j="mlist">
             <div className="jm__track" aria-hidden="true">
               <svg viewBox="0 0 88 590">
-                <path d={VERTICAL} pathLength={1} fill="none" stroke="#f0c777" strokeWidth="8" opacity=".16" strokeDasharray="1" strokeDashoffset="0" strokeLinecap="round" data-j="mgold" />
-                <path d={VERTICAL} pathLength={1} fill="none" stroke="#e8b95f" strokeWidth="2.4" strokeDasharray="1" strokeDashoffset="0" strokeLinecap="round" data-j="mgold" />
+                <path d={VERTICAL} pathLength={1} fill="none" stroke="#C78B87" strokeWidth="8" opacity=".16" strokeDasharray="1" strokeDashoffset="0" strokeLinecap="round" data-j="mgold" />
+                <path d={VERTICAL} pathLength={1} fill="none" stroke="#C78B87" strokeWidth="2.4" strokeDasharray="1" strokeDashoffset="0" strokeLinecap="round" data-j="mgold" />
               </svg>
             </div>
             <svg className="jm__plane" data-j="mplane" viewBox="-22 -16 44 32" aria-hidden="true"><Plane /></svg>
@@ -537,7 +537,7 @@ export function JourneySection() {
             </ol>
           </div>
           <svg viewBox={TORN_BOTTOM_VIEWBOX} preserveAspectRatio="none" className="jm__torn" aria-hidden="true">
-            <path d={PANEL.tornBottom} fill="#f7f3ea" />
+            <path d={PANEL.tornBottom} fill="#F8ECE2" />
           </svg>
         </div>
       </div>

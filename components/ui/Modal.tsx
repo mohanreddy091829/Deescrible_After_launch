@@ -66,24 +66,24 @@ export function Modal({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className={`relative w-full ${maxWidthClass} max-h-[90vh] overflow-y-auto bg-[#FAF8F3] border border-[#242321]/15 rounded-2xl shadow-2xl ${bare ? "p-0" : "p-6 sm:p-8"} text-[#242321] transition-transform duration-200 scale-100 outline-hidden`}
+        className={`relative w-full ${maxWidthClass} max-h-[90vh] overflow-y-auto bg-[#FCF3EC] border border-[#141211]/15 rounded-2xl shadow-2xl ${bare ? "p-0" : "p-6 sm:p-8"} text-[#141211] transition-transform duration-200 scale-100 outline-hidden`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Paper tape accent */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-6 bg-[#D5AA67]/35 border border-[#242321]/10 rounded-xs rotate-[-1deg] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-6 bg-[#C78B87]/35 border border-[#141211]/10 rounded-xs rotate-[-1deg] pointer-events-none" />
 
         {/* Close button */}
         <button
           onClick={onClose}
-          className={`absolute top-4 right-4 z-20 p-2 rounded-full ${bare ? "bg-white/85 text-[#242321] hover:bg-white shadow-sm" : "text-[#716D66] hover:text-[#242321] hover:bg-[#EFE7D8]"} transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#D5AA67]`}
+          className={`absolute top-4 right-4 z-20 p-2 rounded-full ${bare ? "bg-white/85 text-[#141211] hover:bg-white shadow-sm" : "text-[#6B645D] hover:text-[#141211] hover:bg-[#F1DFD2]"} transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#A51C27]`}
           aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
         </button>
 
         {title && !bare && (
-          <div className="mb-6 pr-8 border-b border-[#242321]/10 pb-4">
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#242321] tracking-tight">
+          <div className="mb-6 pr-8 border-b border-[#141211]/10 pb-4">
+            <h3 className="font-serif text-2xl sm:text-3xl text-[#141211] tracking-tight">
               {title}
             </h3>
           </div>

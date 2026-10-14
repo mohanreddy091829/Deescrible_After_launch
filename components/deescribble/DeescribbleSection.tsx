@@ -111,34 +111,34 @@ export function DeescribbleSection() {
       <div className="relative mx-auto max-w-[1360px] px-5 sm:px-8">
         <div className="grid items-end gap-x-12 gap-y-6 lg:grid-cols-[auto_1fr]">
           <div className="relative">
-            <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#4a463f]">
-              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1.4 4.6L12 6 7.4 7.4 6 12 4.6 7.4 0 6l4.6-1.4z" fill="#C47B63" /></svg>
+            <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2E2926]">
+              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1.4 4.6L12 6 7.4 7.4 6 12 4.6 7.4 0 6l4.6-1.4z" fill="#A51C27" /></svg>
               <span>04 / Deescribble</span>
             </div>
-            <h2 className="font-serif text-[clamp(34px,4.2vw,60px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#1d1b19]">
+            <h2 className="font-serif text-[clamp(34px,4.2vw,60px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
               An idea that found
               <br />
               <span className="relative inline-block italic text-[#b5552f]">
                 300K+ people.
                 <svg className="absolute -bottom-2 left-0 h-3 w-full" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M3 9C50 3 80 12 130 7S220 3 297 8" fill="none" stroke="#e0713a" strokeWidth="2.4" strokeLinecap="round" />
+                  <path d="M3 9C50 3 80 12 130 7S220 3 297 8" fill="none" stroke="#A51C27" strokeWidth="2.4" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
-            <span className="font-script pointer-events-none absolute -right-2 -top-3 hidden rotate-[8deg] text-[22px] leading-none text-[#a5532f] sm:block" aria-hidden="true">
+            <span className="font-script pointer-events-none absolute -right-2 -top-3 hidden rotate-[8deg] text-[22px] leading-none text-[#A51C27] sm:block" aria-hidden="true">
               no paid reach ✦
             </span>
           </div>
 
           <div className="lg:justify-self-end lg:max-w-[660px]">
-            <p className="font-sans text-[15px] leading-relaxed text-[#3d3a35]">
-              What started as a creative outlet is now a <span className="font-semibold text-[#1d1b19]">300K+ strong community</span> on Instagram — a space for stories, ideas, observations and real conversations.
+            <p className="font-sans text-[15px] leading-relaxed text-[#2E2926]">
+              What started as a creative outlet is now a <span className="font-semibold text-[#141211]">300K+ strong community</span> on Instagram — a space for stories, ideas, observations and real conversations.
             </p>
             <dl className="mt-5 grid grid-cols-4 gap-x-2">
               {DEESCRIBBLE_STATS.map((s, k) => (
-                <div key={s.label} className={k ? "border-l border-dashed border-[#242321]/25 pl-3 sm:pl-5" : ""}>
-                  <dd className="font-serif text-[clamp(22px,2.6vw,36px)] font-medium italic leading-none tracking-tight text-[#1d1b19]">{s.value}</dd>
-                  <dt className="mt-1.5 font-mono text-[9.5px] uppercase leading-tight tracking-[0.12em] text-[#6a665f] sm:text-[10.5px]">{s.label.replace("Total reach & views", "of views")}</dt>
+                <div key={s.label} className={k ? "border-l border-dashed border-[#141211]/25 pl-3 sm:pl-5" : ""}>
+                  <dd className="font-serif text-[clamp(22px,2.6vw,36px)] font-medium italic leading-none tracking-tight text-[#141211]">{s.value}</dd>
+                  <dt className="mt-1.5 font-mono text-[9.5px] uppercase leading-tight tracking-[0.12em] text-[#6B645D] sm:text-[10.5px]">{s.label.replace("Total reach & views", "of views")}</dt>
                 </div>
               ))}
             </dl>
@@ -211,8 +211,8 @@ export function DeescribbleSection() {
           </ul>
 
           <div className="pointer-events-none absolute -top-7 right-[9%] z-[5] hidden items-end gap-1 sm:flex" aria-hidden="true">
-            <span className="font-script -rotate-3 text-[20px] leading-none text-[#a5532f]">tap a reel!</span>
-            <svg width="38" height="30" viewBox="0 0 38 30" fill="none"><path d="M2 4C14 2 26 8 30 24" stroke="#C47B63" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3 4" /><path d="M24 20l6 6 4-8" stroke="#C47B63" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <span className="font-script -rotate-3 text-[20px] leading-none text-[#A51C27]">tap a reel!</span>
+            <svg width="38" height="30" viewBox="0 0 38 30" fill="none"><path d="M2 4C14 2 26 8 30 24" stroke="#A51C27" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3 4" /><path d="M24 20l6 6 4-8" stroke="#A51C27" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
 
           <button type="button" onClick={() => step(-1)} aria-label="Previous reel" className="reel-arrow reel-arrow--l">
@@ -224,10 +224,10 @@ export function DeescribbleSection() {
         </div>
 
         <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-          <p className="text-center font-sans text-[13px] text-[#5d5a54] sm:text-left" aria-live="polite">
+          <p className="text-center font-sans text-[13px] text-[#5A524B] sm:text-left" aria-live="polite">
             {engaged ? (
               <>
-                <span className="font-semibold text-[#1d1b19]">{reel.title}</span> — {reel.tagline}
+                <span className="font-semibold text-[#141211]">{reel.title}</span> — {reel.tagline}
               </>
             ) : (
               "Tap a reel to take control · tap outside to let it drift again."
@@ -237,7 +237,7 @@ export function DeescribbleSection() {
             href={DEESCRIBBLE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#242321]/35 bg-white/50 px-5 py-2.5 font-sans text-sm font-bold text-[#1d1b19] transition hover:border-[#1d1b19] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e0713a]"
+            className="inline-flex items-center gap-2 rounded-full border border-[#141211]/35 bg-white/50 px-5 py-2.5 font-sans text-sm font-bold text-[#141211] transition hover:border-[#141211] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]"
           >
             Explore Deescribble <ArrowRight className="h-4 w-4" strokeWidth={2.4} />
           </a>

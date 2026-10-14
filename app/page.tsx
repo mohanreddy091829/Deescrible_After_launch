@@ -7,7 +7,7 @@ import { LazySections } from "@/components/utils/LazySections";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F7F3EA] text-[#242321] overflow-x-hidden selection:bg-[#D5AA67]/30 selection:text-[#242321]">
+    <main className="min-h-screen bg-[#F8ECE2] text-[#141211] overflow-x-hidden selection:bg-[#C78B87]/30 selection:text-[#141211]">
       <ScrollToTop />
       <HomeButton />
       <HeroSection />
