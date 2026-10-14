@@ -30,8 +30,9 @@ export function HeroSection() {
           />
           <div className="rh__shade" aria-hidden="true" />
         </div>
-        <svg className="rh__arc" viewBox="0 0 100 47" preserveAspectRatio="none" aria-hidden="true">
-          <circle cx="114.5" cy="59.9" r="68" fill="none" vectorEffect="non-scaling-stroke" />
+        {/* thin arc: drawn over the red backdrop but masked by her silhouette, so it passes behind her */}
+        <svg className="rh__arc" viewBox="0 0 155.4 155.4" aria-hidden="true">
+          <circle cx="77.7" cy="77.7" r="68" fill="none" vectorEffect="non-scaling-stroke" />
         </svg>
 
         <HeroNav />
