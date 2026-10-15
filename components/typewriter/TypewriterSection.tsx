@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 
-/** What the sentence "We turn complex ideas into …" can end with. All drawn from work already on the site. */
-const ENDINGS = ["stories that connect.", "campaigns that convert.", "communities that last.", "brands people trust."];
+/** The headline types and erases each of these in turn. */
+const ENDINGS = ["Brands people trust.", "Stories that sell.", "Communities that stay."];
 const TYPE_MS = 62;
 const ERASE_MS = 34;
 const HOLD_MS = 1700;
@@ -65,9 +65,8 @@ export function TypewriterSection() {
     <section ref={root} id="what-we-do" className="tw" aria-labelledby="tw-title">
       <div className="tw__wrap">
         <h2 id="tw-title" className="tw__title">
-          <span className="sr-only">We turn complex ideas into stories that connect, campaigns that convert, communities that last and brands people trust.</span>
+          <span className="sr-only">Brands people trust. Stories that sell. Communities that stay.</span>
           <span aria-hidden="true">
-            We turn complex ideas into{" "}
             <span className="tw__typed">
               {text}
               <i className="tw__caret" />
@@ -75,14 +74,14 @@ export function TypewriterSection() {
           </span>
         </h2>
         <p className="tw__copy">
-          Dedeepya Abbagani is a branding expert and strategy consultant. From FMCG campaigns to a 300K+ community, she helps brands find the right voice, say it clearly, and turn attention into real action.
+          Brand voice, storytelling and community for consumer brands, B2B companies and founders. Trust first. Then distribution. Then scale.
         </p>
         <div className="tw__btns">
-          <Link href={SITE_CONFIG.bookingCta.href} className="tw__btn tw__btn--solid">
-            Book a Consultation <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
+          <Link href="#work" className="tw__btn tw__btn--solid">
+            See case studies <ArrowRight size={17} strokeWidth={2.2} aria-hidden="true" />
           </Link>
-          <Link href="#work" className="tw__btn tw__btn--ghost">
-            <Sparkles size={16} strokeWidth={2} aria-hidden="true" /> View Work
+          <Link href={SITE_CONFIG.bookingCta.href} className="tw__btn tw__btn--ghost">
+            Get in touch
           </Link>
         </div>
       </div>

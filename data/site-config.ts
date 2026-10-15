@@ -5,17 +5,15 @@ export interface NavItem {
 
 export const SITE_CONFIG = {
   name: "Dedeepya Abbagani",
-  title: "Branding Expert & Strategy Consultant",
-  tagline: "Ideas, Strategies, Stories that create real impact.",
+  title: "Brand storyteller & community builder",
+  tagline: "Trust first. Then everything else.",
   supportingText:
-    "Helping brands, people and ideas find the right voice — from FMCG campaigns to 300K+ stories, I turn complex ideas into narratives that connect, convert and last.",
+    "Brand voice, storytelling and community for consumer brands, B2B companies and founders. Trust first. Then distribution. Then scale.",
   bioSummary:
-    "A growth map of a curious strategist who turns complex ideas into stories that connect, convert and create real impact.",
-  email: "dedeepya.abbagani@gmail.com",
-  /** Placeholder enquiry details: replace with the real ones before launch. */
-  enquiryEmail: "hello@dedeepyaabbagani.com",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
+    "I left three years of UPSC prep to write. That led to speechwriting, a winning election campaign, events for the Prime Minister, brand work for HUL and ITC, a US fintech rebrand, and Deescribble, at 300K+ followers in about 15 months. Each step taught me one piece of building a brand. I say yes first, then learn fast.",
+  email: "dedeepyajprwork@gmail.com",
+  /** Where enquiries and the contact links go. */
+  enquiryEmail: "dedeepyajprwork@gmail.com",
   location: "Hyderabad, India",
   socials: {
     instagram: "https://www.instagram.com/deescribble_/",
@@ -42,5 +40,5 @@ export const SITE_CONFIG = {
   quickNavLinks: [
     { label: "WORKS", href: "#work" },
   ] as NavItem[],
-  bookingCta: { label: "Book a Consultation", href: "/consultation" },
+  bookingCta: { label: "Get in touch", href: "/consultation" },
 };

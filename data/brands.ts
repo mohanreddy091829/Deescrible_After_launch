@@ -109,13 +109,4 @@ export const BRANDS: Brand[] = [
     alt: "MullenLowe Lintas Group logo",
     accent: "#2B334A",
   },
-  {
-    id: "mulpuri",
-    name: "Mulpuri Foods & Feeds",
-    logo: "/assets/brands/mulpuri.svg",
-    url: "https://mulpuri.in/",
-    category: "Agri & Consumer Foods",
-    alt: "Mulpuri Foods and Feeds logo",
-    accent: "#1F8A6A",
-  },
 ];

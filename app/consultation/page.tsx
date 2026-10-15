@@ -4,8 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { ConsultationBooking } from "@/components/consultation/ConsultationBooking";
 
 export const metadata: Metadata = {
-  title: "Book a consultation",
-  description: "Book a consultation with Dedeepya Abbagani to talk about your brand, story or strategy.",
+  title: "Get in touch",
+  description: "Tell Dedeepya about your brand, story or strategy and she will get back to you.",
   alternates: { canonical: "/consultation" },
 };
 
@@ -18,12 +18,12 @@ export default function ConsultationPage() {
           <span className="consult__mark">Dedeepya Abbagani</span>
         </div>
         <div className="consult__hero">
-          <p className="consult__eyebrow">Book a consultation</p>
+          <p className="consult__eyebrow">Get in touch</p>
           <h1 className="consult__title">
             Let&apos;s talk about
             <em> what comes next.</em>
           </h1>
-          <p className="consult__copy">Choose a time, tell me a little about what you&apos;re building, and we&apos;ll take it from there.</p>
+          <p className="consult__copy">Share a few details about what you&apos;re building and I&apos;ll get back to you personally.</p>
         </div>
       </header>
       <main id="main">

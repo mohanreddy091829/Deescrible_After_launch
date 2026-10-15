@@ -48,3 +48,7 @@ next-env.d.ts
 .vercel
 .open-next
 .wrangler
+
+# local CMS data (events, reels, enquiries, uploaded images)
+/.data/
+tsconfig.tsbuildinfo

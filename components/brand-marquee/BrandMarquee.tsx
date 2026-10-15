@@ -175,6 +175,7 @@ export function BrandMarquee() {
       </div>
 
       <p className="brand-strip__label">Brands I&apos;ve worked with</p>
+      <p className="brand-strip__sub">Consumer, B2B and political work, through agencies and in-house.</p>
     </section>
   );
 }

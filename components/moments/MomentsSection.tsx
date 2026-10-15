@@ -45,7 +45,7 @@ function Card({ card, index, live }: { card: MomentCard; index: number; live: bo
           />
         ))}
       </div>
-      <figcaption>{card.label}</figcaption>
+      <figcaption><b>{card.label}</b><span>{card.caption}</span></figcaption>
     </figure>
   );
 }
@@ -74,12 +74,11 @@ export function MomentsSection() {
   return (
     <section id="moments" ref={root} className="mo" aria-labelledby="mo-title">
       <div className="mo__head">
-        <h2 id="mo-title" className="mo__title" aria-label="About Me">
+        <h2 id="mo-title" className="mo__title" aria-label="About me">
           <span className="mo__hl" aria-hidden="true">About M</span><span aria-hidden="true">e</span>
         </h2>
         <p className="mo__sub">{SITE_CONFIG.bioSummary}</p>
-        <p className="mo__tag">Stories, stages and places that shaped the work</p>
-      </div>
+              </div>
       <div className="mo__fan">
         {MOMENTS.map((c, i) => (
           <Card key={c.label} card={c} index={i} live={live && !reduced} />

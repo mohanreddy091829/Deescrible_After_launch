@@ -8,6 +8,8 @@
  */
 export interface MomentCard {
   label: string;
+  /** Line printed under the label. */
+  caption: string;
   /** public paths; at least one. */
   images: { src: string; alt: string }[];
   /** desktop fan: left/top as % of the fan box, z-index, tilt in degrees; width optional (CSS length). */
@@ -25,10 +27,10 @@ const W = "/assets/work";
 const S = "/assets/stories";
 
 export const MOMENTS: MomentCard[] = [
-  { label: "Kashi", x: "0%", y: "10%", z: 2, r: -6, rm: -3, images: [{ src: `${S}/decoding-varanasi.webp`, alt: "Pilgrims and boats on the ghats of Varanasi" }, { src: `${E}/06-documentary.webp`, alt: "Boats on the Ganges at sunrise" }, { src: `${S}/regional-stories.webp`, alt: "A busy bazaar street leading to the Charminar" }] },
-  { label: "On Stage", x: "13%", y: "44%", z: 4, r: 5, rm: 3, images: [{ src: `${E}/03-founder.webp`, alt: "A microphone against stage lights" }, { src: `${S}/tedx-talk.webp`, alt: "A theatre stage with red seating" }, { src: `${S}/panels-and-speaking.webp`, alt: "An auditorium stage framed by curtains" }] },
-  { label: "The Brief", x: "29%", y: "2%", z: 6, r: -3, rm: 2, images: [{ src: `${E}/02-community.webp`, alt: "Hands holding a phone and notebook" }, { src: `${S}/brand-conversations.webp`, alt: "Hands writing in a notebook" }, { src: `${E}/04-tech.webp`, alt: "A laptop with an analytics dashboard" }] },
-  { label: "On Shelf", x: "46%", y: "30%", z: 5, r: 5, rm: -3, images: [{ src: `${E}/01-fmcg.webp`, alt: "A supermarket aisle of household brands" }, { src: `${W}/tresemme.webp`, alt: "A shampoo bottle wrapped in golden hair" }, { src: `${W}/itc-aashirvaad.webp`, alt: "Colourful bins of spices at a market" }] },
-  { label: "Every Day", x: "63%", y: "4%", z: 3, r: -5, rm: 3, images: [{ src: `${W}/surf-excel.webp`, alt: "Children playing football on a muddy ground" }, { src: `${W}/glow-and-lovely.webp`, alt: "Hands holding an open jar of cream" }, { src: `${S}/belgian-waffle-analysis.webp`, alt: "A display of waffles with fruit and cream" }] },
-  { label: "The System", x: "80%", y: "34%", z: 4, r: 7, rm: -2, images: [{ src: `${W}/microsoft.webp`, alt: "A laptop on a white desk" }, { src: `${E}/05-political.webp`, alt: "Sansad Bhavan at dusk" }, { src: `${W}/mulpuri.webp`, alt: "Paddy fields at golden hour" }] },
+  { label: "Kashi", caption: "A Telugu film on Kashi, adopted across India.", x: "0%", y: "4%", z: 2, r: -4, rm: -3, images: [{ src: `${S}/kashi-sunset.webp`, alt: "Dedeepya looking out over the Varanasi ghats at sunset" }, { src: `${E}/06-documentary.webp`, alt: "Boats on the Ganges at sunrise" }] },
+  { label: "On Stage", caption: "From writing speeches to running PM events.", x: "5%", y: "55%", z: 4, r: 3, rm: 3, images: [{ src: `${E}/03-founder.webp`, alt: "A microphone against stage lights" }, { src: `${S}/tedx-onstage.webp`, alt: "Dedeepya speaking on stage at TEDxVVITU" }, { src: `${S}/panel-discussion.webp`, alt: "Dedeepya in a panel discussion" }] },
+  { label: "The Brief", caption: "Every story starts with the brief.", x: "34%", y: "0%", z: 3, r: 3, rm: 2, images: [{ src: `${E}/02-community.webp`, alt: "Hands holding a phone and notebook" }, { src: `${S}/brand-conversations.webp`, alt: "Hands writing in a notebook" }, { src: `${E}/04-tech.webp`, alt: "A laptop with an analytics dashboard" }] },
+  { label: "On Shelf", caption: "From the script to the supermarket shelf.", x: "38%", y: "54%", z: 5, r: -3, rm: -3, images: [{ src: `${E}/01-fmcg.webp`, alt: "A supermarket aisle of household brands" }, { src: `${W}/tresemme.webp`, alt: "A shampoo bottle wrapped in golden hair" }, { src: `${W}/itc-aashirvaad.webp`, alt: "Colourful bins of spices at a market" }] },
+  { label: "Every Day", caption: "Writing, every day.", x: "68%", y: "5%", z: 2, r: -3, rm: 3, images: [{ src: `${W}/surf-excel.webp`, alt: "Children playing football on a muddy ground" }, { src: `${W}/glow-and-lovely.webp`, alt: "Hands holding an open jar of cream" }, { src: `${S}/belgian-waffle-analysis.webp`, alt: "A display of waffles with fruit and cream" }] },
+  { label: "The System", caption: "Audit first. Then question the default.", x: "72%", y: "57%", z: 4, r: 4, rm: -2, images: [{ src: `${W}/microsoft.webp`, alt: "A laptop on a white desk" }, { src: `${E}/05-political.webp`, alt: "Sansad Bhavan at dusk" }] },
 ];

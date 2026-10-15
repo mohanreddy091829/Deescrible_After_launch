@@ -17,22 +17,25 @@ export interface ReelItem {
   headline: string;
   theme: string;
   quote?: string;
+  /** true for reels managed in the admin (real covers, not generated quote cards) */
+  custom?: boolean;
 }
 
 export const DEESCRIBBLE_STATS = [
-  { label: "Instagram followers", value: "300K+", note: "Organic community" },
-  { label: "LinkedIn followers", value: "4.5K+", note: "Thought leadership" },
-  { label: "Content series", value: "20+", note: "Episodic storytelling" },
-  { label: "Total reach & views", value: "Millions", note: "Across social media" },
+  { label: "followers", value: "300K+" },
+  { label: "views", value: "30M+" },
+  { label: "interactions", value: "11M+" },
+  { label: "videos + ~40 posts", value: "~100" },
 ];
 
 export const DEESCRIBBLE_URL = "https://www.instagram.com/deescribble_/";
 
 export const REELS: ReelItem[] = [
-  { id: "brand-breakdowns", poster: "/assets/reels/posters/brand-breakdowns.webp", title: "Brand Breakdowns", tagline: "Unpacking what makes iconic brands tick", description: "Analytical breakdowns of Indian and global brands.", theme: "Brand architecture", quote: "", headline: "Every brand is built on one overlooked truth.", bg: "linear-gradient(160deg,#2b2a3a 0%,#4b3b5c 55%,#c47b63 130%)" },
-  { id: "ad-stories", poster: "/assets/reels/posters/ad-stories.webp", title: "Ad Stories", tagline: "The craft behind unforgettable commercials", description: "Why certain lines, songs and frames stayed with a generation.", theme: "Advertising craft", headline: "A great ad reflects a generation back to itself.", bg: "linear-gradient(160deg,#3a2418 0%,#8a4b2a 60%,#e8a826 140%)" },
-  { id: "life-observations", poster: "/assets/reels/posters/life-observations.webp", title: "Life Observations", tagline: "Everyday human moments, distilled", description: "Micro-essays on behaviour, cities and routines.", theme: "Human insights", headline: "The best research is how people talk when nobody is surveying them.", bg: "linear-gradient(160deg,#1f3138 0%,#3d6370 60%,#9db8d4 140%)" },
-  { id: "varanasi-diaries", poster: "/assets/reels/posters/varanasi-diaries.webp", title: "Varanasi Diaries", tagline: "Where eternity meets the tea stall", description: "Chronicles from the ghats of Kashi.", theme: "Cultural heritage", headline: "In Kashi, time ripples like the Ganga.", bg: "linear-gradient(160deg,#3b1f12 0%,#b5602a 55%,#f1b56a 130%)" },
-  { id: "creative-process", poster: "/assets/reels/posters/creative-process.webp", title: "Creative Process", tagline: "The honest mess of bringing ideas to life", description: "Behind the scenes of writing and consulting work.", theme: "Creative discipline", headline: "Creativity is the patience to sit through the storm.", bg: "linear-gradient(160deg,#242321 0%,#4d4538 60%,#d5aa67 140%)" },
-  { id: "real-conversations", poster: "/assets/reels/posters/real-conversations.webp", title: "Real Conversations", tagline: "Dialogue with 300K+ thinkers and doers", description: "Audience questions on careers, brands and finding a voice.", theme: "Community exchange", headline: "A community is a room where everyone feels heard.", bg: "linear-gradient(160deg,#27342b 0%,#546b58 60%,#c9b88a 140%)" },
+  { id: "workplace-kastalu", title: "Workplace Kastalu", tagline: "3.1M views", description: "Workplace Kastalu", poster: "/assets/reels/posters/workplace-kastalu-v2.webp", instagramUrl: "https://www.instagram.com/reel/DL45Z1KRcok/", theme: "Instagram", headline: "Workplace Kastalu", bg: "#4a0b11", custom: true },
+  { id: "invest-in-skills", title: "Invest in skills", tagline: "1.1M views", description: "Invest in skills", poster: "/assets/reels/posters/invest-in-skills-v2.webp", instagramUrl: "https://www.instagram.com/reel/DZ9_Qp1RFFG/", theme: "Instagram", headline: "Invest in skills", bg: "#4a0b11", custom: true },
+  { id: "be-kind", title: "Be kind", tagline: "3.3M views", description: "Be kind", poster: "/assets/reels/posters/be-kind-v2.webp", instagramUrl: "https://www.instagram.com/reel/DYmdg6YxKh8/", theme: "Instagram", headline: "Be kind", bg: "#4a0b11", custom: true },
+  { id: "decoding-varanasi", title: "Decoding Varanasi", tagline: "2.5M views", description: "Decoding Varanasi", poster: "/assets/reels/posters/decoding-varanasi-v2.webp", instagramUrl: "https://www.instagram.com/reel/DTKyGUtEfU6/", theme: "Instagram", headline: "Decoding Varanasi", bg: "#4a0b11", custom: true },
+  { id: "varanasi-hope", title: "Varanasi: hope, human and god", tagline: "4.7M views", description: "Varanasi: hope, human and god", poster: "/assets/reels/posters/varanasi-hope-v2.webp", instagramUrl: "https://www.instagram.com/reel/DTAlP5dEY7k/", theme: "Instagram", headline: "Varanasi: hope, human and god", bg: "#4a0b11", custom: true },
+  { id: "books-mindset", title: "Books: your mindset", tagline: "2.8M views", description: "Books: your mindset", poster: "/assets/reels/posters/books-mindset-v2.webp", instagramUrl: "https://www.instagram.com/reel/DNstRss4tCo/", theme: "Instagram", headline: "Books: your mindset", bg: "#4a0b11", custom: true },
+  { id: "relationships-nourishment", title: "Relationships need nourishment", tagline: "1.7M views", description: "Relationships need nourishment", poster: "/assets/reels/posters/relationships-nourishment-v2.webp", instagramUrl: "https://www.instagram.com/reel/DMxhpMFRkDU/", theme: "Instagram", headline: "Relationships need nourishment", bg: "#4a0b11", custom: true },
 ];

@@ -10,7 +10,7 @@ const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'" + (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""),
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://*.public.blob.vercel-storage.com",
   "media-src 'self' blob:",
   "font-src 'self' data:",
   "connect-src 'self'" + (process.env.NODE_ENV === "development" ? " ws: wss:" : ""),
@@ -29,6 +29,8 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  { key: "Cross-Origin-Resource-Policy", value: "same-site" },
+  { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
 ];
 
 const nextConfig: NextConfig = {
@@ -42,7 +44,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
   },
   cacheComponents: true,
-  experimental: { optimizePackageImports: ["lucide-react", "gsap", "motion"] },
+  experimental: { optimizePackageImports: ["lucide-react", "gsap"] },
   turbopack: {
     rules: {
       "*.css": {
@@ -54,6 +56,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
+      { source: "/admin", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Cache-Control", value: "no-store" }] },
+      { source: "/api/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] },
       // fingerprinted by content in the filename path? No: our assets are stable names, so revalidate daily
       { source: "/assets/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }] },
     ];

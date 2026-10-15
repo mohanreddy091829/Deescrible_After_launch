@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
@@ -8,6 +9,8 @@ import { SITE_CONFIG } from "@/data/site-config";
 /** Five section links, the consultation pill and a round menu button that opens the full-screen menu. */
 export function HeroNav() {
   const [open, setOpen] = useState(false);
+  // the menu is portalled to <body> so no section's overflow or stacking can clip it
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const closeRef = useRef<HTMLButtonElement>(null);
   const openRef = useRef<HTMLButtonElement>(null);
 
@@ -37,7 +40,7 @@ export function HeroNav() {
         </div>
         <div className="rh__navend">
           <Link href={SITE_CONFIG.bookingCta.href} className="rh__cta">
-            Book a Consultation <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+            Get in touch <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
           </Link>
           <button ref={openRef} className="rh__menu" aria-label="Open menu" aria-expanded={open} aria-controls="rh-menu" onClick={() => setOpen(true)}>
             <Menu size={22} strokeWidth={1.6} />
@@ -45,6 +48,7 @@ export function HeroNav() {
         </div>
       </nav>
 
+      {mounted && createPortal(
       <div id="rh-menu" className="rh-sheet" data-open={open} role="dialog" aria-modal="true" aria-label="Menu" aria-hidden={!open} inert={!open}>
         <div className="rh-sheet__top">
           <span>Dedeepya Abbagani</span>
@@ -60,9 +64,13 @@ export function HeroNav() {
           ))}
         </div>
         <Link href={SITE_CONFIG.bookingCta.href} className="rh__cta rh__cta--light" onClick={() => setOpen(false)}>
-          Book a Consultation <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
+          Get in touch <ArrowUpRight size={15} strokeWidth={2} aria-hidden="true" />
         </Link>
-      </div>
+        {/* quiet entrance to the website admin */}
+        <Link href="/admin" className="rh-sheet__admin" onClick={() => setOpen(false)}>Admin login</Link>
+      </div>,
+        document.body,
+      )}
     </>
   );
 }

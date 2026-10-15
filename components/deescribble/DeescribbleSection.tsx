@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { REELS, DEESCRIBBLE_STATS, DEESCRIBBLE_URL } from "@/data/reels";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { REELS as DEFAULT_REELS, DEESCRIBBLE_STATS, DEESCRIBBLE_URL, type ReelItem } from "@/data/reels";
+import type { ReelEntry } from "@/lib/cms/types";
 import { TiltedGridHero } from "@/components/ui/tilted-grid-hero";
-import { ArrowRight, ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-const BAND_IMAGES = REELS.map((r) => ({ src: r.poster ?? "", alt: r.title }));
 
 /**
  * Two layers share one stage:
  *  - idle: a curved band of 9:16 reels drifts right → left (CSS-only, paused when off-screen)
  *  - engaged: the moment someone hovers, touches, focuses or uses an arrow, the band stops and a flat,
- *    swipeable row of the same reels takes over so a reel can actually be watched (muted by default).
+ *    swipeable row of the same reels takes over so a reel can actually be watched.
  */
 export function DeescribbleSection() {
   const root = useRef<HTMLElement>(null);
@@ -20,9 +20,25 @@ export function DeescribbleSection() {
   const stageRef = useRef<HTMLDivElement>(null);
   const [engaged, setEngaged] = useState(false);
   const [inView, setInView] = useState(false);
+  const [bandOn, setBandOn] = useState(false);
   const [active, setActive] = useState(0);
-  const [muted, setMuted] = useState(true);
   const [narrow, setNarrow] = useState(false);
+  // Reels added in the admin replace the built-in quote cards once they exist
+  const [reels, setReels] = useState<ReelItem[]>(DEFAULT_REELS);
+  const BAND_IMAGES = useMemo(() => reels.map((r) => ({ src: r.poster ?? "", alt: r.title })), [reels]);
+
+  useEffect(() => {
+    const ac = new AbortController();
+    fetch("/api/reels", { signal: ac.signal })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d: { items: ReelEntry[] }) => {
+        if (!d.items?.length) return;
+        setReels(d.items.map((r, i) => ({ id: r.id, title: r.title || `Reel ${i + 1}`, tagline: r.stat, description: "", theme: "Instagram", headline: r.title, poster: r.image, instagramUrl: r.url, bg: "#4a0b11", custom: true })));
+        setActive(0);
+      })
+      .catch(() => undefined);
+    return () => ac.abort();
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 639px)");
@@ -40,7 +56,10 @@ export function DeescribbleSection() {
       if (!e.isIntersecting) setEngaged(false);
     }, { threshold: 0.2 });
     io.observe(el);
-    return () => io.disconnect();
+    // the drifting band is heavy to build, so mount it shortly before it scrolls into view
+    const near = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setBandOn(true); near.disconnect(); } }, { rootMargin: "600px" });
+    near.observe(el);
+    return () => { io.disconnect(); near.disconnect(); };
   }, []);
 
   // which card is centred: nearest to the scroller's midpoint, measured on scroll
@@ -66,16 +85,29 @@ export function DeescribbleSection() {
 
   // only the centred reel plays, only while engaged and on screen
   useEffect(() => {
-    REELS.forEach((r, k) => {
+    reels.forEach((r, k) => {
       const v = videos.current[r.id];
       if (!v) return;
-      v.muted = muted;
+      v.muted = true;
       if (engaged && inView && k === active) v.play().catch(() => undefined);
       else v.pause();
     });
-  }, [active, engaged, inView, muted]);
+  }, [active, engaged, inView, reels]);
 
   const engage = useCallback(() => setEngaged(true), []);
+
+  // when the band hands over to the row, open on a middle reel so there are reels on both sides
+  useEffect(() => {
+    const sc = scroller.current;
+    if (!engaged || !sc) return;
+    const cards = sc.querySelectorAll<HTMLElement>("li");
+    const mid = cards[Math.floor(cards.length / 2)];
+    if (!mid) return;
+    const prev = sc.style.scrollBehavior;
+    sc.style.scrollBehavior = "auto";
+    sc.scrollLeft = mid.offsetLeft + mid.offsetWidth / 2 - sc.clientWidth / 2;
+    sc.style.scrollBehavior = prev;
+  }, [engaged]);
 
   // click / tap anywhere outside the stage (or Esc, or scrolling the section away) hands control back to the band
   useEffect(() => {
@@ -102,7 +134,7 @@ export function DeescribbleSection() {
     sc.scrollBy({ left: dir * w, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   };
 
-  const reel = REELS[active];
+  const reel = reels[active] ?? reels[0];
 
   return (
     <section id="deescribble" ref={root} className="relative overflow-hidden bg-[#F2EBDC] py-10 sm:py-14" aria-label="Deescribble community">
@@ -116,29 +148,19 @@ export function DeescribbleSection() {
               <span>04 / Deescribble</span>
             </div>
             <h2 className="font-serif text-[clamp(34px,4.2vw,60px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
-              An idea that found
-              <br />
-              <span className="relative inline-block italic text-[#b5552f]">
-                300K+ people.
-                <svg className="absolute -bottom-2 left-0 h-3 w-full" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M3 9C50 3 80 12 130 7S220 3 297 8" fill="none" stroke="#A51C27" strokeWidth="2.4" strokeLinecap="round" />
-                </svg>
-              </span>
+              Deescribble
             </h2>
-            <span className="font-script pointer-events-none absolute -right-2 -top-3 hidden rotate-[8deg] text-[22px] leading-none text-[#A51C27] sm:block" aria-hidden="true">
-              no paid reach ✦
-            </span>
           </div>
 
           <div className="lg:justify-self-end lg:max-w-[660px]">
             <p className="font-sans text-[15px] leading-relaxed text-[#2E2926]">
-              What started as a creative outlet is now a <span className="font-semibold text-[#141211]">300K+ strong community</span> on Instagram — a space for stories, ideas, observations and real conversations.
+              A community for professional and emotional wellbeing. Series on LinkedIn, Lessons of Life and Communication Skills, plus offline meetups for women and artists. Each piece is shaped by audience understanding, with the aim of creating meaningful interaction and trust.
             </p>
             <dl className="mt-5 grid grid-cols-4 gap-x-2">
               {DEESCRIBBLE_STATS.map((s, k) => (
                 <div key={s.label} className={k ? "border-l border-dashed border-[#141211]/25 pl-3 sm:pl-5" : ""}>
                   <dd className="font-serif text-[clamp(22px,2.6vw,36px)] font-medium italic leading-none tracking-tight text-[#141211]">{s.value}</dd>
-                  <dt className="mt-1.5 font-mono text-[9.5px] uppercase leading-tight tracking-[0.12em] text-[#6B645D] sm:text-[10.5px]">{s.label.replace("Total reach & views", "of views")}</dt>
+                  <dt className="mt-1.5 font-mono text-[9.5px] uppercase leading-tight tracking-[0.12em] text-[#6B645D] sm:text-[10.5px]">{s.label}</dt>
                 </div>
               ))}
             </dl>
@@ -152,7 +174,7 @@ export function DeescribbleSection() {
           onPointerDown={engage}
           onFocus={engage}
         >
-          <TiltedGridHero
+          {bandOn && <TiltedGridHero
             images={BAND_IMAGES}
             aspectRatio={9 / 16}
             tileHeight={narrow ? 82 : 84}
@@ -162,7 +184,7 @@ export function DeescribbleSection() {
             fade={14}
             speed={3.6}
             className="reel-band absolute inset-0"
-          />
+          />}
 
           <ul
             ref={scroller}
@@ -174,10 +196,10 @@ export function DeescribbleSection() {
             }}
             className="reel-row"
           >
-            {REELS.map((r, k) => (
+            {reels.map((r, k) => (
               <li key={r.id} data-i={k} className={`reel-card ${k === active ? "is-active" : ""}`} aria-label={r.title}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={r.poster} alt={`${r.title}: ${r.headline}`} draggable={false} loading={k < 3 ? "eager" : "lazy"} className="absolute inset-0 h-full w-full object-cover" />
+                <img src={r.poster} alt={r.custom ? `${r.title} (Deescribble reel)` : `Deescribble quote card: "${r.headline}"`} draggable={false} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
                 {r.video && (
                   <video
                     ref={(el) => { videos.current[r.id] = el; }}
@@ -190,30 +212,12 @@ export function DeescribbleSection() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 )}
-                {k === active && (
-                  <button
-                    type="button"
-                    onClick={() => setMuted((m) => !m)}
-                    aria-pressed={!muted}
-                    aria-label={muted ? "Unmute reel" : "Mute reel"}
-                    title={muted ? "Sound off — tap to unmute" : "Sound on — tap to mute"}
-                    className="reel-mute"
-                  >
-                    {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-                    <span className="sr-only">{muted ? "Sound off" : "Sound on"}</span>
-                  </button>
-                )}
                 <a href={r.instagramUrl ?? DEESCRIBBLE_URL} target="_blank" rel="noopener noreferrer" className="reel-ig" aria-label={`Open ${r.title} on Instagram`}>
                   Instagram <ArrowRight className="h-3 w-3" strokeWidth={2.6} />
                 </a>
               </li>
             ))}
           </ul>
-
-          <div className="pointer-events-none absolute -top-7 right-[9%] z-[5] hidden items-end gap-1 sm:flex" aria-hidden="true">
-            <span className="font-script -rotate-3 text-[20px] leading-none text-[#A51C27]">tap a reel!</span>
-            <svg width="38" height="30" viewBox="0 0 38 30" fill="none"><path d="M2 4C14 2 26 8 30 24" stroke="#A51C27" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="3 4" /><path d="M24 20l6 6 4-8" stroke="#A51C27" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </div>
 
           <button type="button" onClick={() => step(-1)} aria-label="Previous reel" className="reel-arrow reel-arrow--l">
             <ChevronLeft className="h-5 w-5" />
@@ -227,10 +231,10 @@ export function DeescribbleSection() {
           <p className="text-center font-sans text-[13px] text-[#5A524B] sm:text-left" aria-live="polite">
             {engaged ? (
               <>
-                <span className="font-semibold text-[#141211]">{reel.title}</span> — {reel.tagline}
+                <span className="font-semibold text-[#141211]">{reel.title}</span>{reel.tagline ? ` — ${reel.tagline}` : ""}
               </>
             ) : (
-              "Tap a reel to take control · tap outside to let it drift again."
+              `${reels.some((r) => !r.custom) ? "Quote cards are illustrative. " : ""}Tap one to take control · tap outside to let it drift again.`
             )}
           </p>
           <a
@@ -239,7 +243,7 @@ export function DeescribbleSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-[#141211]/35 bg-white/50 px-5 py-2.5 font-sans text-sm font-bold text-[#141211] transition hover:border-[#141211] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]"
           >
-            Explore Deescribble <ArrowRight className="h-4 w-4" strokeWidth={2.4} />
+            Follow Deescribble <ArrowRight className="h-4 w-4" strokeWidth={2.4} />
           </a>
         </div>
       </div>
