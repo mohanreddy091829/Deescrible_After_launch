@@ -10,7 +10,7 @@ export const SITE_CONFIG = {
   supportingText:
     "Brand voice, storytelling and community for consumer brands, B2B companies and founders. Trust first. Then distribution. Then scale.",
   bioSummary:
-    "I left three years of UPSC prep to write. That led to speechwriting, a winning election campaign, events for the Prime Minister, brand work for HUL and ITC, a US fintech rebrand, and Deescribble, at 300K+ followers in about 15 months. Each step taught me one piece of building a brand. I say yes first, then learn fast.",
+    "Speechwriting, a winning election campaign, events for the Prime Minister, brand work for HUL and ITC, a US fintech rebrand, and Deescribble at 300K+ followers in about 15 months.",
   email: "dedeepyajprwork@gmail.com",
   /** Where enquiries and the contact links go. */
   enquiryEmail: "dedeepyajprwork@gmail.com",

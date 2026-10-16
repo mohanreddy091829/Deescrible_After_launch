@@ -13,17 +13,17 @@ export interface StoryItem {
 /** Captions marked "placeholder" in the copy doc ([Q3]) are working lines until Dedeepya confirms them. */
 export const STORIES: StoryItem[] = [
   {
-    id: "notebook",
-    caption: "Where every idea starts.",
-    coverImage: "/assets/stories/brand-conversations.webp",
-    imageAlt: "Open notebook with handwritten notes",
-    externalUrl: "https://www.linkedin.com/in/dedeepya-abbagani/",
-    focus: "50% 55%",
-    credit: {"title": "Person writing in a notebook while sitting at a desk", "author": "Shixart1985", "license": "CC BY 2.0", "url": "https://commons.wikimedia.org/wiki/File:Person_writing_in_a_notebook_while_sitting_at_a_desk.jpg"},
+    id: "cpa-podcast",
+    caption: "CPA Transformation Podcast: a video series with US finance leaders, powered by Zenwork Tax1099.",
+    coverImage: "/assets/stories/cpa-podcast.webp",
+    imageAlt: "CPA Transformation Podcast, Season 1, episode 1 poster with two guests",
+    externalUrl: "https://www.youtube.com/playlist?list=PLECTqeR-CSIRRsThS5QvOZ3sbrsw5HXht",
+    focus: "50% 50%",
+    credit: { title: "CPA Transformation Podcast (Season 1)", author: "Tax1099", license: "YouTube", url: "https://www.youtube.com/playlist?list=PLECTqeR-CSIRRsThS5QvOZ3sbrsw5HXht" },
   },
   {
     id: "theatre",
-    caption: "TEDxVVITU, Guntur: on the speaker list, February 2026.",
+    caption: "Speaking at TEDxVVITU, Guntur, February 2026.",
     coverImage: "/assets/stories/tedx-stage.webp",
     imageAlt: "Dedeepya speaking on stage at TEDxVVITU",
     externalUrl: "https://www.ted.com/tedx/events/65648",

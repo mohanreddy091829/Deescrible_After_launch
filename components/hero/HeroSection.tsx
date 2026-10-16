@@ -2,12 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { HeroNav } from "./HeroNav";
+import { WaveBackground } from "./WaveBackground";
 import { SITE_CONFIG } from "@/data/site-config";
 
 const STATS = [
   { v: "300K+", l: "Followers" },
-  { v: "30M+", l: "Views" },
-  { v: "11M+", l: "Interactions" },
+  { v: "140M+", l: "Views" },
+  { v: "35M+", l: "Interactions" },
 ];
 
 /**
@@ -22,7 +23,7 @@ export function HeroSection() {
   return (
     <section id="hero" className="rh" aria-label={`Hero — ${SITE_CONFIG.name}`}>
       <div className="rh__stage">
-        <div className="rh__light" aria-hidden="true" />
+        <WaveBackground />
         <div className="rh__red" aria-hidden="true" />
 
         <HeroNav />
@@ -63,10 +64,10 @@ export function HeroSection() {
 
         <figure className="rh__photo">
           <Image
-            src="/assets/hero/dedeepya-hero.webp"
-            alt="Dedeepya smiling, arms crossed, seated in front of a wooden desk with small painted canvases"
-            width={2448}
-            height={2570}
+            src="/assets/hero/dedeepya-bw.webp"
+            alt="Dedeepya Abbagani in a black blazer, black-and-white portrait"
+            width={2466}
+            height={2589}
             priority
             quality={85}
             sizes="(max-width: 899px) 82vw, 38vw"

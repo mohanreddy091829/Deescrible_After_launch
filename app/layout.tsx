@@ -1,46 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Noto_Serif_Display, Bricolage_Grotesque, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import { SITE_URL, ALLOW_INDEXING } from "@/lib/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
-
-// Bold grotesque reserved for the hero role line, deliberately unlike every other face on the page.
-const role = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-role",
-  display: "swap",
-  weight: "variable",
-  axes: ["opsz", "wdth"],
-});
-
-// Clean geometric sans for her name plate on the portrait.
-const nameFont = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-name",
-  display: "swap",
-  weight: ["300", "800"],
-});
-
-// Condensed high-contrast Didone used for the hero name (width axis keeps it tight like the design).
-const display = Noto_Serif_Display({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  axes: ["wdth"],
-});
-
-const plusJakarta = Plus_Jakarta_Sans({
+// One family for the whole site (the clean, neutral grotesque used by product and SaaS sites).
+// The optical-size axis switches to the display cut automatically at large sizes.
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  axes: ["opsz"],
 });
 
 const TITLE = "Dedeepya Abbagani | Brand storyteller & community builder";
@@ -119,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${plusJakarta.variable} ${display.variable} ${role.variable} ${nameFont.variable} scroll-smooth`}
+      className={`${inter.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-[#F8ECE2] text-[#141211] font-sans antialiased selection:bg-[#C78B87]/25 selection:text-[#141211]">
         {children}

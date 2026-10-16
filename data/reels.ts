@@ -23,8 +23,8 @@ export interface ReelItem {
 
 export const DEESCRIBBLE_STATS = [
   { label: "followers", value: "300K+" },
-  { label: "views", value: "30M+" },
-  { label: "interactions", value: "11M+" },
+  { label: "views", value: "140M+" },
+  { label: "interactions", value: "35M+" },
   { label: "videos + ~40 posts", value: "~100" },
 ];
 

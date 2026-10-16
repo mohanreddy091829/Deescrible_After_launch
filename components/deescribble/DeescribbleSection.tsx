@@ -137,28 +137,47 @@ export function DeescribbleSection() {
   const reel = reels[active] ?? reels[0];
 
   return (
-    <section id="deescribble" ref={root} className="relative overflow-hidden bg-[#F2EBDC] py-10 sm:py-14" aria-label="Deescribble community">
-      <div className="pointer-events-none absolute inset-0 opacity-60 mix-blend-multiply" style={{ backgroundImage: "var(--paper-grain)" }} aria-hidden="true" />
+    <section id="deescribble" ref={root} className="relative overflow-hidden bg-white py-12 sm:py-16" aria-label="Deescribble community">
 
       <div className="relative mx-auto max-w-[1360px] px-5 sm:px-8">
+        {/* welcome card */}
+        <div className="mx-auto mb-10 max-w-[620px] sm:mb-14 lg:mx-0 lg:ml-[8%]">
+          <div className="relative pb-5">
+            <span aria-hidden="true" className="absolute inset-x-8 top-[-14px] h-10 rounded-[22px] border border-[#141211]/[0.06] bg-white shadow-[0_10px_30px_-18px_rgba(20,18,17,0.35)]" />
+            <span aria-hidden="true" className="absolute inset-x-4 top-[-7px] h-10 rounded-[22px] border border-[#141211]/[0.07] bg-white shadow-[0_10px_30px_-16px_rgba(20,18,17,0.35)]" />
+            <div className="relative rounded-[22px] border border-[#141211]/[0.08] bg-white px-6 py-6 shadow-[0_24px_50px_-26px_rgba(20,18,17,0.45)] sm:px-8 sm:py-7">
+              <p className="font-sans text-[17px] font-semibold leading-snug tracking-[-0.01em] text-[#141211] sm:text-[19px]">
+                Welcome to the beautiful journey of Deescribble.
+              </p>
+              <p className="mt-2 font-sans text-[15px] leading-relaxed text-[#4a423d]">
+                It began with one story, written to make sense of life, and it has not stopped growing since.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* intro */}
+        <p className="mb-12 max-w-[980px] font-sans text-[clamp(22px,3vw,40px)] font-bold leading-[1.18] tracking-[-0.03em] text-[#141211] sm:mb-16">
+          Deescribble is a community built on trust, where true human emotions, success, failures and the real self of life are shared openly. Today,{" "}
+          <span className="text-[#A51C27]">300K+ people</span> have joined the journey, and there is a long way still to go.
+        </p>
+
         <div className="grid items-end gap-x-12 gap-y-6 lg:grid-cols-[auto_1fr]">
           <div className="relative">
-            <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2E2926]">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2E2926]">
               <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 0l1.4 4.6L12 6 7.4 7.4 6 12 4.6 7.4 0 6l4.6-1.4z" fill="#A51C27" /></svg>
-              <span>04 / Deescribble</span>
+              <span>02 / Deescribble</span>
             </div>
-            <h2 className="font-serif text-[clamp(34px,4.2vw,60px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
-              Deescribble
-            </h2>
+            <h2 className="sr-only">Deescribble</h2>
           </div>
 
           <div className="lg:justify-self-end lg:max-w-[660px]">
             <p className="font-sans text-[15px] leading-relaxed text-[#2E2926]">
               A community for professional and emotional wellbeing. Series on LinkedIn, Lessons of Life and Communication Skills, plus offline meetups for women and artists. Each piece is shaped by audience understanding, with the aim of creating meaningful interaction and trust.
             </p>
-            <dl className="mt-5 grid grid-cols-4 gap-x-2">
+            <dl className="mt-5 grid grid-cols-2 gap-x-2 gap-y-5 sm:grid-cols-4">
               {DEESCRIBBLE_STATS.map((s, k) => (
-                <div key={s.label} className={k ? "border-l border-dashed border-[#141211]/25 pl-3 sm:pl-5" : ""}>
+                <div key={s.label} className={k ? "sm:border-l sm:border-dashed sm:border-[#141211]/25 sm:pl-5" : ""}>
                   <dd className="font-serif text-[clamp(22px,2.6vw,36px)] font-medium italic leading-none tracking-tight text-[#141211]">{s.value}</dd>
                   <dt className="mt-1.5 font-mono text-[9.5px] uppercase leading-tight tracking-[0.12em] text-[#6B645D] sm:text-[10.5px]">{s.label}</dt>
                 </div>

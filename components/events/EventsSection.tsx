@@ -99,7 +99,7 @@ function Row({ items, past, label }: { items: EventItem[]; past?: boolean; label
   );
 }
 
-/** Offline events, managed from /admin. Loaded after the page so a slow API never blocks the first paint. */
+/** Community meetups, managed from /admin. Loaded after the page so a slow API never blocks the first paint. */
 export function EventsSection() {
   const [data, setData] = useState<Data | null>(null);
   const [failed, setFailed] = useState(false);
@@ -119,9 +119,9 @@ export function EventsSection() {
     <section id="events" className="relative bg-[#F2EBDC] py-14 sm:py-20" aria-labelledby="events-title">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <div className="mb-9 max-w-2xl sm:mb-12">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">Offline events</p>
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">Community meetups</p>
           <h2 id="events-title" className="font-serif text-[clamp(32px,4.4vw,56px)] font-normal leading-[1.04] tracking-[-0.03em] text-[#141211]">
-            Meet in person
+            Community meetups
           </h2>
           <p className="mt-4 font-sans text-[16px] leading-relaxed text-[#5A524B]">Meetups, workshops and gatherings for women, artists and creators. New dates are added often.</p>
         </div>

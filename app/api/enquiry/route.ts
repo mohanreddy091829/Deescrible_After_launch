@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
   const [mailed, whatsapped] = await Promise.all([sendEmail(e), sendWhatsApp(e)]);
   if (!stored && !mailed && !whatsapped) return Response.json({ success: false, error: "Could not send right now." }, { status: 502 });
 
-  const wa = (process.env.WHATSAPP_NUMBER || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "").replace(/[^\d]/g, "");
+  const wa = (process.env.WHATSAPP_NUMBER || "").replace(/[^\d]/g, "");
   const whatsapp = wa ? `https://wa.me/${wa}?text=${encodeURIComponent(`Hi Dedeepya, this is ${e.name} from ${e.company}. I just sent an enquiry about ${e.service}.`)}` : "";
   return Response.json({ success: true, whatsapp });
 }

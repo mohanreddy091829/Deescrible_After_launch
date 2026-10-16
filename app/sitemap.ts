@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { ALLOW_INDEXING, SITE_URL } from "@/lib/site";
 
 // Bump these dates when the pages' content changes meaningfully.
-const HOME_UPDATED = "2026-10-15";
-const CONTACT_UPDATED = "2026-10-15";
+const HOME_UPDATED = "2026-10-16";
+const CONTACT_UPDATED = "2026-10-16";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!ALLOW_INDEXING) return [];

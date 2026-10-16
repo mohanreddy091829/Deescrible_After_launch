@@ -65,7 +65,6 @@ Strict CSP, HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy and Permis
 | `SESSION_SECRET` | yes | Signs the admin session (32+ random characters) |
 | `BLOB_READ_WRITE_TOKEN` | on Vercel | Added by Vercel when you create a Blob store; lets the admin save events, reels, enquiries and images |
 | `NEXT_PUBLIC_ALLOW_INDEXING` | demo only | Set to `false` on the demo deployment so Google ignores it |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | yes | Digits with country code, for the chat button |
 | `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `NOTIFY_EMAIL` | optional | Email delivery of enquiries |
 | `CALLMEBOT_PHONE`, `CALLMEBOT_APIKEY` | optional | WhatsApp alert for new enquiries |
 

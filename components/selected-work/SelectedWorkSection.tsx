@@ -8,7 +8,15 @@ import { PROJECTS, Project } from "@/data/projects";
 import { Modal } from "@/components/ui/Modal";
 import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-const CATEGORIES = ["All", "FMCG", "Technology", "Personal Branding"] as const;
+const CATEGORIES = ["All", "FMCG", "Tech", "Community Building", "Personal Branding", "Community Events", "Political"] as const;
+
+/** "All" shows one card from each category in turn, so every area is represented near the front. */
+function interleave(list: Project[]): Project[] {
+  const groups = CATEGORIES.slice(1).map((c) => list.filter((p) => p.category === c));
+  const out: Project[] = [];
+  for (let i = 0; out.length < list.length; i++) groups.forEach((g) => g[i] && out.push(g[i]));
+  return out;
+}
 
 export function SelectedWorkSection() {
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>("All");
@@ -17,8 +25,7 @@ export function SelectedWorkSection() {
   const dock = useRef<HTMLUListElement>(null);
   const bar = useRef<HTMLSpanElement>(null);
 
-  const list = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
-  const available = new Set<string>(PROJECTS.map((p) => p.category));
+  const list = filter === "All" ? interleave(PROJECTS) : PROJECTS.filter((p) => p.category === filter);
 
   const syncBar = useCallback(() => {
     const d = dock.current, b = bar.current;
@@ -75,21 +82,21 @@ export function SelectedWorkSection() {
   };
 
   return (
-    <section id="work" ref={root} className="relative overflow-hidden bg-[#F8ECE2] pb-16 pt-12 sm:pb-24 sm:pt-16" aria-label="Selected work and case studies">
+    <section id="work" ref={root} className="relative overflow-hidden bg-[#F8ECE2] pb-16 pt-12 sm:pb-24 sm:pt-16" aria-label="Case studies">
       <div className="relative mx-auto max-w-[1360px] px-5 sm:px-8">
         <div className="mb-8 grid items-end gap-x-10 gap-y-6 sm:mb-10 lg:grid-cols-[1fr_auto]">
           <div>
             <div data-w="rise" className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">
-              <span>03 / Selected work</span>
+              <span>03 / Case studies</span>
             </div>
             <h2 data-w="rise" className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
-              Selected work
+              Case studies
             </h2>
           </div>
 
           <div data-w="rise" className="flex flex-col gap-4 lg:items-end">
             <div className="-mx-5 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 lg:justify-end" role="tablist" aria-label="Filter by category">
-              {CATEGORIES.filter((c) => c === "All" || available.has(c)).map((c) => {
+              {CATEGORIES.map((c) => {
                 const on = filter === c;
                 return (
                   <button
@@ -117,6 +124,14 @@ export function SelectedWorkSection() {
           </div>
         </div>
       </div>
+
+      {list.length === 0 && (
+        <div className="mx-auto max-w-[1360px] px-5 sm:px-8">
+          <p className="rounded-2xl border border-dashed border-[#141211]/20 bg-white/50 p-8 text-center font-sans text-[15px] text-[#5A524B]">
+            {filter} case studies are being added. Check back soon.
+          </p>
+        </div>
+      )}
 
       {/* dock */}
       <ul

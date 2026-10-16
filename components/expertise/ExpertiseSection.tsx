@@ -9,7 +9,7 @@ export function ExpertiseSection() {
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <div className="mb-6 sm:mb-8">
           <div>
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">02 / Expertise</p>
+            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">01 / Expertise</p>
             <h2 id="expertise-title" className="font-serif text-[clamp(30px,3.8vw,48px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
               What I do best
             </h2>

@@ -3,8 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG } from "@/data/site-config";
 import { CtaHeadline } from "./CtaHeadline";
-import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 /** Closing call to action. The booking form itself lives on /consultation. */
 export function ConsultationCta() {
@@ -19,10 +17,6 @@ export function ConsultationCta() {
             <span>{SITE_CONFIG.bookingCta.label}</span>
             <span className="cta__arrow" aria-hidden="true"><ArrowUpRight size={22} strokeWidth={2} /></span>
           </Link>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="cta__wa" aria-label="Start a WhatsApp chat with Dedeepya (opens in a new tab)">
-            <WhatsAppIcon className="h-6 w-6" />
-            <span>Chat on WhatsApp</span>
-          </a>
         </div>
         <div className="cta__badge" aria-hidden="true">
           <svg viewBox="0 0 120 120">
