@@ -56,4 +56,4 @@ Strict CSP, HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy and Permis
 
 ## Deploying to a GoDaddy (or any Linux) VPS
 
-Full step-by-step guide: see `deploy/GUIDE.md`. Files: `deploy/ecosystem.config.cjs` (PM2), `deploy/nginx.conf` (Nginx), `deploy/deploy.sh` (update script).
+Full step-by-step guide: see `deploy/GUIDE.md`. Files: `deploy/vps/ecosystem.config.cjs` (PM2), `deploy/vps/nginx.conf` (Nginx), `deploy/vps/deploy.sh` (update script).

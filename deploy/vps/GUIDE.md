@@ -68,7 +68,7 @@ Next.js reads `.env.production` automatically when it builds and runs.
 ```bash
 npm ci
 npm run build
-pm2 start deploy/ecosystem.config.cjs
+pm2 start deploy/vps/ecosystem.config.cjs
 pm2 save
 exit            # back to root
 env PATH=$PATH:/usr/bin pm2 startup systemd -u deploy --hp /home/deploy   # copy and run the command it prints
@@ -77,7 +77,7 @@ Check it is running: `curl -I http://127.0.0.1:3000` should say `200`.
 
 ## 7. Nginx and HTTPS
 ```bash
-cp /var/www/deescribble/deploy/nginx.conf /etc/nginx/sites-available/deescribble
+cp /var/www/deescribble/deploy/vps/nginx.conf /etc/nginx/sites-available/deescribble
 nano /etc/nginx/sites-available/deescribble        # replace YOURDOMAIN.com (3 places)
 ln -s /etc/nginx/sites-available/deescribble /etc/nginx/sites-enabled/
 rm -f /etc/nginx/sites-enabled/default
@@ -106,7 +106,7 @@ In the Supabase dashboard:
 3. URL inspection > your home page > Request indexing.
 
 ## 11. Updating the site later
-On the server as the `deploy` user: `cd /var/www/deescribble && bash deploy/deploy.sh`
+On the server as the `deploy` user: `cd /var/www/deescribble && bash deploy/vps/deploy.sh`
 
 ## 12. Care and safety
 - Your admin content is in Supabase, so redeploys never erase it.

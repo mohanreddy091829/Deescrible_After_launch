@@ -52,3 +52,6 @@ next-env.d.ts
 # local CMS data (events, reels, enquiries, uploaded images)
 /.data/
 tsconfig.tsbuildinfo
+
+# upload package
+/deescribble-upload*
