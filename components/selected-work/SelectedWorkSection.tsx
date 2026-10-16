@@ -206,6 +206,19 @@ export function SelectedWorkSection() {
             </div>
 
             <div className="space-y-6 p-5 sm:p-8">
+              {selected.headline ? (
+                <div className="space-y-5">
+                  <p className="font-sans text-[13px] font-bold uppercase tracking-[0.04em] text-[#A51C27]/80">{selected.eyebrow}</p>
+                  <p className="font-sans text-[clamp(26px,4vw,38px)] font-bold leading-[1.12] tracking-[-0.035em] text-[#141211]">{selected.headline}</p>
+                  <hr className="border-[#141211]/10" />
+                  <div>
+                    <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6B645D]">Role</p>
+                    <p className="mt-2 font-sans text-[17px] font-bold text-[#141211]">{selected.role}</p>
+                    <p className="mt-2 font-sans text-[16px] leading-relaxed text-[#2E2926]">{selected.case}</p>
+                  </div>
+                </div>
+              ) : (
+              <>
               <dl className="grid grid-cols-2 gap-4 border-b border-[#141211]/10 pb-5 font-mono text-xs">
                 {[
                   ["Brand", selected.clientOrBrand],
@@ -219,6 +232,8 @@ export function SelectedWorkSection() {
               </dl>
 
               <p className="font-serif text-xl leading-snug text-[#141211] sm:text-2xl">{selected.case}</p>
+              </>
+              )}
 
               <a href="/consultation" onClick={() => setSelected(null)} className="inline-flex items-center gap-2 rounded-full bg-[#141211] px-5 py-2.5 font-sans text-sm font-bold text-white transition hover:bg-[#2E2926] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]">
                 Discuss a similar brief <ArrowRight className="h-4 w-4" strokeWidth={2.4} />

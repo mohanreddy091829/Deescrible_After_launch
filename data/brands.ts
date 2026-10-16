@@ -109,4 +109,15 @@ export const BRANDS: Brand[] = [
     alt: "MullenLowe Lintas Group logo",
     accent: "#2B334A",
   },
+  {
+    id: "closeup",
+    name: "Closeup",
+    logo: "/assets/brands/closeup.webp",
+    url: "https://www.hul.co.in/brands/",
+    category: "Oral Care",
+    alt: "Closeup logo",
+    accent: "#E4002B",
+    fit: "cover",
+    background: "#FA0001",
+  },
 ];

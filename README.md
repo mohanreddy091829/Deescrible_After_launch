@@ -47,29 +47,13 @@ Requires Node 20.9+. If `npm run dev` shows stale errors after a build, delete `
 
 Strict CSP, HSTS, `X-Frame-Options: DENY`, `nosniff`, Referrer-Policy and Permissions-Policy are set in `next.config.ts`. Nothing is loaded from third-party origins at runtime. No secrets are used; `.env*` (except `.env.example`) is git-ignored.
 
-## Admin (events and reels) and the enquiry form
+## Admin, storage and enquiries
 
-- **Admin:** open the menu (hamburger) and tap the small "Admin login" link, or go to `/admin`. Log in with `ADMIN_PASSWORD`. From there add, edit and delete **Events** (title, date, place, text, image, button) and **Reels** (Instagram link + cover image), and read saved **Enquiries**. Press "Publish changes" and the site updates within about 20 seconds. Images are resized and compressed automatically.
-- **Setup:** copy `.env.example` to `.env.local` (local) or add the same variables in the host's settings. `ADMIN_PASSWORD` (8+ characters) and `SESSION_SECRET` (16+ random characters) are required; the admin stays locked without them.
-- **Storage:** locally, data lives in `.data/` (git-ignored). On Vercel the disk is read-only, so add a **Blob** store to the project (Storage tab) and Vercel sets `BLOB_READ_WRITE_TOKEN`; the admin then saves there automatically.
-- **Enquiry form (`/consultation`):** every submission is stored (see Admin > Enquiries). Set `GMAIL_USER` + `GMAIL_APP_PASSWORD` to also receive it by Gmail, `CALLMEBOT_PHONE` + `CALLMEBOT_APIKEY` for a WhatsApp alert, and `WHATSAPP_NUMBER` to show visitors a "Continue on WhatsApp" button.
+- **Admin:** open the menu and tap "Admin login", or go to `/admin`. Log in with the email and password of the admin user created in **Supabase > Authentication > Users**. Only the email in `ADMIN_EMAIL` is accepted, everyone else is refused even if they have a Supabase account. Tabs: Events, Reels, Enquiries. Press "Publish changes" and the site updates within about 20 seconds.
+- **Storage:** with Supabase configured, events/reels/enquiries live in the `cms_documents` table and uploaded images in the public `cms-media` bucket. Run `supabase/schema.sql` once in the Supabase SQL Editor to create them. Without Supabase, data is written to the local `.data/` folder (development only).
+- **Secrets:** every key lives in environment variables. `SUPABASE_SECRET_KEY` is used on the server only and is never sent to the browser.
+- **Enquiry form (`/consultation`):** every submission is stored (Admin > Enquiries). Set `GMAIL_USER` + `GMAIL_APP_PASSWORD` to also receive it by email.
 
-## Deploying
+## Deploying to a GoDaddy (or any Linux) VPS
 
-**Environment variables** (never commit real values; `.env*` is git-ignored, `.env.example` lists every name):
-
-| Variable | Needed | Purpose |
-|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | yes | The public address (canonical links, sitemap, share previews) |
-| `ADMIN_PASSWORD` | yes | Admin login (10+ characters). Admin stays locked without it |
-| `SESSION_SECRET` | yes | Signs the admin session (32+ random characters) |
-| `BLOB_READ_WRITE_TOKEN` | on Vercel | Added by Vercel when you create a Blob store; lets the admin save events, reels, enquiries and images |
-| `NEXT_PUBLIC_ALLOW_INDEXING` | demo only | Set to `false` on the demo deployment so Google ignores it |
-| `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `NOTIFY_EMAIL` | optional | Email delivery of enquiries |
-| `CALLMEBOT_PHONE`, `CALLMEBOT_APIKEY` | optional | WhatsApp alert for new enquiries |
-
-**Demo on Vercel:** import the GitHub repo, add the variables above (with `NEXT_PUBLIC_ALLOW_INDEXING=false`), create a Blob store under Storage, deploy.
-
-**Real site on another host:** it needs Node 20.9+ (`npm run build`, then `npm start`) and a server with a persistent disk (the admin stores data in `.data/`), or a host that supports the Vercel Blob token. Static-only hosting will not run the admin or the enquiry form.
-
-**After launch:** submit `https://<your-domain>/sitemap.xml` in Google Search Console (Sitemaps) and use "Request indexing" on the home page.
+Full step-by-step guide: see `deploy/GUIDE.md`. Files: `deploy/ecosystem.config.cjs` (PM2), `deploy/nginx.conf` (Nginx), `deploy/deploy.sh` (update script).

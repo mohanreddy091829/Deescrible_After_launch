@@ -6,12 +6,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import { BRANDS, BRAND_STRIP } from "@/data/brands";
 
-/** Each half of the loop repeats the list this many times so it always outruns ultra-wide screens. */
-const REPEATS = 3;
 /** Large positive offset so the infinite animation can be scrubbed backwards without hitting 0. */
 const HEADROOM = 1000;
 
-const SET = Array.from({ length: REPEATS }, () => BRANDS).flat();
+/** One copy of the list per half of the loop. The viewport is capped (see CSS) so the same logo is never on screen twice. */
+const SET = BRANDS;
 
 export function BrandMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -105,7 +104,7 @@ export function BrandMarquee() {
   const renderSet = (clone: boolean) => (
     <div className="brand-strip__set" data-clone={clone ? "" : undefined} aria-hidden={clone || undefined}>
       {SET.map((brand, i) => {
-        const primary = !clone && i < BRANDS.length; // one focusable copy of each logo
+        const primary = !clone; // one focusable copy of each logo
         return (
           <a
             key={`${brand.id}-${i}`}
@@ -126,7 +125,7 @@ export function BrandMarquee() {
   );
 
   return (
-    <section id="brands" className="brand-strip" aria-label="Brands I've worked with">
+    <section id="brands" className="brand-strip" style={{ "--n": BRANDS.length } as React.CSSProperties} aria-label="Brands I've worked with">
       <div className="brand-strip__row">
         <button type="button" className="brand-nav" onClick={() => nudge("prev")} aria-label="Show previous brands">
           <ChevronLeft size={18} />

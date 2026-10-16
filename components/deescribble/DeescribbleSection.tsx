@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { REELS as DEFAULT_REELS, DEESCRIBBLE_STATS, DEESCRIBBLE_URL, type ReelItem } from "@/data/reels";
 import type { ReelEntry } from "@/lib/cms/types";
 import { TiltedGridHero } from "@/components/ui/tilted-grid-hero";
@@ -161,6 +162,22 @@ export function DeescribbleSection() {
           Deescribble is a community built on trust, where true human emotions, success, failures and the real self of life are shared openly. Today,{" "}
           <span className="text-[#A51C27]">300K+ people</span> have joined the journey, and there is a long way still to go.
         </p>
+
+        {/* moments: two overlapping photo cards */}
+        <ul className="mb-14 grid grid-cols-1 gap-6 sm:mb-20 md:relative md:block md:h-[440px] lg:h-[500px]" aria-label="Deescribble moments">
+          {[
+            { src: "/assets/stories/deescribble-talk.webp", alt: "Dedeepya speaking to a room of women at a Deescribble gathering", pos: "md:absolute md:left-[3%] md:top-0 md:w-[58%] md:-rotate-[2.5deg]" },
+            { src: "/assets/stories/deescribble-celebration.webp", alt: "Dedeepya celebrating with women at a Deescribble meetup", pos: "md:absolute md:right-[3%] md:top-[18%] md:z-10 md:w-[50%] md:rotate-[2.5deg]" },
+          ].map((c) => (
+            <li key={c.src} className={`group ${c.pos}`}>
+              <figure className="m-0 rounded-[24px] bg-white p-2.5 shadow-[0_30px_60px_-26px_rgba(20,18,17,0.55)] ring-1 ring-[#141211]/[0.06] transition duration-500 group-hover:-translate-y-2 group-hover:rotate-0">
+                <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[17px] bg-[#F1DFD2]">
+                  <Image src={c.src} alt={c.alt} fill sizes="(max-width: 767px) 92vw, 58vw" quality={82} className="object-cover" />
+                </div>
+              </figure>
+            </li>
+          ))}
+        </ul>
 
         <div className="grid items-end gap-x-12 gap-y-6 lg:grid-cols-[auto_1fr]">
           <div className="relative">

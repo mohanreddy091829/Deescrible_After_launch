@@ -337,6 +337,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  justify-content: center;
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 clamp(12px, 3.5vw, 56px);
@@ -346,6 +347,8 @@
   touch-action: pan-y;
   flex: 1;
   min-width: 0;
+  /* never wider than one full list minus a logo, so a logo can't appear twice at once */
+  max-width: calc((var(--n) - 1) * (var(--bs-size) + var(--bs-gap)));
   overflow-x: clip;
   padding-block: 14px; /* room for hover lift + glow */
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);

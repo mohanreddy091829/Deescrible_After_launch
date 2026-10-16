@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Check, ImagePlus, Loader2, LogOut, Plus, Trash2 } from "lucide-react";
 import type { Enquiry, EventItem, ReelEntry } from "@/lib/cms/types";
 
-type Session = { configured: boolean; authed: boolean; storage: string } | null;
+type Session = { configured: boolean; authed: boolean; storage: string; mode: "supabase" | "password" } | null;
 type Tab = "events" | "reels" | "enquiries";
 
 const box = "w-full rounded-xl border border-[#141211]/15 bg-white px-3.5 py-2.5 font-sans text-[14px] text-[#141211] placeholder:text-[#8a8179] focus:border-[#A51C27] focus:outline-none focus:ring-2 focus:ring-[#A51C27]/25";
@@ -169,7 +169,8 @@ function Enquiries() {
   );
 }
 
-function Login({ onDone, configured }: { onDone: () => void; configured: boolean }) {
+function Login({ onDone, configured, mode }: { onDone: () => void; configured: boolean; mode: "supabase" | "password" }) {
+  const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
@@ -177,7 +178,7 @@ function Login({ onDone, configured }: { onDone: () => void; configured: boolean
     e.preventDefault();
     setBusy(true);
     setErr("");
-    const { ok, data } = await api("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: pw }) });
+    const { ok, data } = await api("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password: pw }) });
     setBusy(false);
     if (ok) onDone();
     else setErr(data.error || "Could not log in.");
@@ -186,11 +187,17 @@ function Login({ onDone, configured }: { onDone: () => void; configured: boolean
     <form onSubmit={go} className="mx-auto mt-24 w-full max-w-sm rounded-[24px] border border-[#141211]/10 bg-white/85 p-7 shadow-[0_30px_60px_-40px_rgba(90,11,18,.45)]">
       <h1 className="font-serif text-3xl text-[#141211]">Admin login</h1>
       <p className="mt-1 font-sans text-[14px] text-[#5A524B]">Update events and reels on the website.</p>
-      {!configured && <p className="mt-4 rounded-xl bg-[#F1DFD2] p-3 font-sans text-[13px] text-[#2E2926]">The admin is locked until <code>ADMIN_PASSWORD</code> and <code>SESSION_SECRET</code> are set on the server.</p>}
+      {!configured && <p className="mt-4 rounded-xl bg-[#F1DFD2] p-3 font-sans text-[13px] text-[#2E2926]">The admin is locked until the admin settings (<code>SESSION_SECRET</code> and the login settings) are set on the server.</p>}
+      {mode === "supabase" && (
+        <>
+          <label className={`${lab} mt-5`} htmlFor="em">Email</label>
+          <input id="em" type="email" autoFocus autoComplete="username" className={box} value={email} onChange={(e) => setEmail(e.target.value)} />
+        </>
+      )}
       <label className={`${lab} mt-5`} htmlFor="pw">Password</label>
-      <input id="pw" type="password" autoFocus autoComplete="current-password" className={box} value={pw} onChange={(e) => setPw(e.target.value)} />
+      <input id="pw" type="password" autoFocus={mode !== "supabase"} autoComplete="current-password" className={box} value={pw} onChange={(e) => setPw(e.target.value)} />
       {err && <p className="mt-2 font-sans text-[13px] text-[#b0262f]" role="alert">{err}</p>}
-      <button disabled={busy || !pw} className={`${btn} mt-5 w-full bg-[#141211] text-white hover:bg-[#7a1018]`}>{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "Log in"}</button>
+      <button disabled={busy || !pw || (mode === "supabase" && !email)} className={`${btn} mt-5 w-full bg-[#141211] text-white hover:bg-[#7a1018]`}>{busy ? <Loader2 className="h-4 w-4 animate-spin" /> : "Log in"}</button>
     </form>
   );
 }
@@ -211,11 +218,11 @@ export function AdminApp() {
           )}
         </div>
         {!s ? <p className="py-24 text-center"><Loader2 className="mx-auto h-6 w-6 animate-spin" /></p> : !s.authed ? (
-          <Login onDone={load} configured={s.configured} />
+          <Login onDone={load} configured={s.configured} mode={s.mode} />
         ) : (
           <>
             <h1 className="mt-8 font-serif text-4xl text-[#141211]">Website admin</h1>
-            {s.storage === "local-disk" && process.env.NODE_ENV === "production" && <p className="mt-3 rounded-xl bg-[#F1DFD2] p-3 font-sans text-[13px]">Changes are saved to this server&apos;s disk. On Vercel, connect a Blob store so they persist.</p>}
+            {s.storage === "local-disk" && process.env.NODE_ENV === "production" && <p className="mt-3 rounded-xl bg-[#F1DFD2] p-3 font-sans text-[13px]">Changes are saved to this server&apos;s disk. Connect Supabase so they are backed up and survive redeploys.</p>}
             <div role="tablist" className="mt-6 flex gap-2 overflow-x-auto pb-1">
               {(["events", "reels", "enquiries"] as Tab[]).map((t) => (
                 <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)} className={`shrink-0 rounded-full border px-5 py-2 font-sans text-sm font-semibold capitalize transition ${tab === t ? "border-[#141211] bg-[#141211] text-[#F8ECE2]" : "border-[#141211]/20 bg-white/70 text-[#2E2926] hover:border-[#141211]"}`}>{t}</button>

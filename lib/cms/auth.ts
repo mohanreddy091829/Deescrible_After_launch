@@ -1,6 +1,7 @@
 import "server-only";
 import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
+import { SB, sbPasswordLogin } from "./supabase";
 
 export const COOKIE = "dd_admin";
 const MAX_AGE = 60 * 60 * 8; // 8 hours
@@ -8,8 +9,30 @@ const MAX_AGE = 60 * 60 * 8; // 8 hours
 const secret = () => process.env.SESSION_SECRET || "";
 const password = () => process.env.ADMIN_PASSWORD || "";
 
-/** The CMS stays locked until both secrets are configured. */
-export const adminConfigured = () => secret().length >= 16 && password().length >= 10;
+const adminEmail = () => (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+
+/**
+ * Two ways to log in:
+ *  - "supabase": email + password checked by Supabase Auth, and only the one email in ADMIN_EMAIL is accepted
+ *  - "password": a single shared password in ADMIN_PASSWORD (simple local development)
+ */
+export const authMode = (): "supabase" | "password" => (SB && SB.publishable && adminEmail() ? "supabase" : "password");
+
+/** The CMS stays locked until the session secret and a login method are configured. */
+export const adminConfigured = () => secret().length >= 32 && (authMode() === "supabase" || password().length >= 10);
+
+export async function verifyLogin(email: string, pw: string): Promise<boolean> {
+  if (authMode() === "supabase") {
+    const e = email.trim().toLowerCase();
+    if (!e || e !== adminEmail()) {
+      await sbPasswordLogin(e || "none@invalid.local", pw).catch(() => null); // keep timing similar
+      return false;
+    }
+    const u = await sbPasswordLogin(e, pw);
+    return !!u && u.email === adminEmail();
+  }
+  return checkPassword(pw);
+}
 
 const b64 = (b: Buffer) => b.toString("base64url");
 const mac = (data: string) => b64(crypto.createHmac("sha256", secret()).update(data).digest());

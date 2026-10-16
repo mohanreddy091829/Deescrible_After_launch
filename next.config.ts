@@ -6,11 +6,12 @@ import type { NextConfig } from "next";
  * inline bootstrap scripts and for the component-injected <style> tags; tighten with nonces if you add a
  * dynamic server.
  */
+const sbOrigin = /^https:\/\/[a-z0-9]{20}\.supabase\.co$/.test(process.env.SUPABASE_URL ?? "") ? ` ${process.env.SUPABASE_URL}` : "";
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'" + (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""),
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.public.blob.vercel-storage.com",
+  `img-src 'self' data: blob: https://*.public.blob.vercel-storage.com${sbOrigin}`,
   "media-src 'self' blob:",
   "font-src 'self' data:",
   "connect-src 'self'" + (process.env.NODE_ENV === "development" ? " ws: wss:" : ""),

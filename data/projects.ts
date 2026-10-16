@@ -9,6 +9,9 @@ export interface Project {
   context?: string;
   /** The one-line case shown on the card and in the dialog. */
   case: string;
+  /** Optional editorial layout for the dialog: small label, large headline, then Role and the description. */
+  eyebrow?: string;
+  headline?: string;
   coverImage: string;
   imageAlt: string;
   /** CSS object-position for crops. */
@@ -98,8 +101,10 @@ export const PROJECTS: Project[] = [
     title: "Founder & Executive Positioning",
     clientOrBrand: "Founder & Executive Positioning",
     category: "Personal Branding",
-    role: "Strategist",
-    case: "Positioning and public communication for a South Indian film family, Lifespan's founder and Qentelli's Chief Digital Officer.",
+    role: "Brand & Communications Strategist",
+    case: "Executive positioning, personal brand strategy and public communication for founders, business leaders and public-facing personalities.",
+    eyebrow: "Personal Branding & Strategy",
+    headline: "Building how leaders are seen, heard and understood.",
     coverImage: "/assets/expertise/branding-celebrity-v2.webp",
     imageAlt: "Dedeepya with a film star at an event",
     focus: "50% 18%",
@@ -122,8 +127,8 @@ export const PROJECTS: Project[] = [
     category: "Political",
     role: "Campaign strategist",
     case: "Took over campaign design mid-election, when the strategy team stepped back, and the campaign won. Later ran events for the Prime Minister, Home Minister and Defence Minister, handling labour, permissions, communications and media.",
-    coverImage: "/assets/work/political-campaign.webp",
-    imageAlt: "A government meeting room with officials seated around a table",
-    focus: "55% 45%",
+    coverImage: "/assets/work/political-event.webp",
+    imageAlt: "Dedeepya at a national government event with an official in the backdrop",
+    focus: "50% 22%",
   },
 ];
