@@ -6,7 +6,7 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Override default ignores of eslint-config-next.
-  globalIgnores(["_archive/**", "deploy/**", 
+  globalIgnores(["_archive/**", "deploy/**", "scripts/**", 
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",

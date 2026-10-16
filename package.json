@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prestart": "node scripts/ensure-deps.cjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.2",

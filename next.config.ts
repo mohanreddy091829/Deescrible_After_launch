@@ -6,7 +6,9 @@ import type { NextConfig } from "next";
  * inline bootstrap scripts and for the component-injected <style> tags; tighten with nonces if you add a
  * dynamic server.
  */
-const sbOrigin = /^https:\/\/[a-z0-9]{20}\.supabase\.co$/.test(process.env.SUPABASE_URL ?? "") ? ` ${process.env.SUPABASE_URL}` : "";
+// The Supabase project address is public (it appears in every image link), so it is safe as a default.
+const sbUrl = process.env.SUPABASE_URL || "https://hpwjpzscfmzmzkkrqgrr.supabase.co";
+const sbOrigin = /^https:\/\/[a-z0-9]{20}\.supabase\.co$/.test(sbUrl) ? ` ${sbUrl}` : "";
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'" + (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""),
