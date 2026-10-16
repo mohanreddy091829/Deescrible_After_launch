@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "prestart": "node scripts/ensure-deps.cjs"
+    "prestart": "node scripts/ensure-deps.cjs",
+    "postinstall": "node scripts/ensure-deps.cjs backup"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.3.3",
