@@ -56,3 +56,4 @@ tsconfig.tsbuildinfo
 # upload package
 /deescribble-upload*
 /CPANEL-ENV-VALUES.txt
+/env-production-UPLOAD-ME.txt
