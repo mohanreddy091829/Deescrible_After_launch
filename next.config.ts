@@ -48,14 +48,6 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   experimental: { optimizePackageImports: ["lucide-react", "gsap"] },
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },

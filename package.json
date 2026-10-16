@@ -5,14 +5,14 @@
   "main": "scripts/ensure-deps.cjs",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "prestart": "node scripts/ensure-deps.cjs"
   },
   "dependencies": {
-    "@tailwindcss/turbopack": "^4",
+    "@tailwindcss/postcss": "4.3.3",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
