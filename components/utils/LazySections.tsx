@@ -9,6 +9,7 @@ const DeescribbleSection = dynamic(() => import("@/components/deescribble/Deescr
 const TypewriterSection = dynamic(() => import("@/components/typewriter/TypewriterSection").then((m) => m.TypewriterSection));
 const SelectedWorkSection = dynamic(() => import("@/components/selected-work/SelectedWorkSection").then((m) => m.SelectedWorkSection));
 const JourneySection = dynamic(() => import("@/components/journey/JourneySection").then((m) => m.JourneySection));
+const WritingSection = dynamic(() => import("@/components/writing/WritingSection").then((m) => m.WritingSection));
 const StoriesSection = dynamic(() => import("@/components/stories-beyond-brands/StoriesSection").then((m) => m.StoriesSection));
 const EventsSection = dynamic(() => import("@/components/events/EventsSection").then((m) => m.EventsSection));
 const ConsultationCta = dynamic(() => import("@/components/cta/ConsultationCta").then((m) => m.ConsultationCta));
@@ -23,6 +24,7 @@ export function LazySections() {
       <CardTransition><TypewriterSection /></CardTransition>
       <CardTransition><SelectedWorkSection /></CardTransition>
       <CardTransition><JourneySection /></CardTransition>
+      <CardTransition><WritingSection /></CardTransition>
       <CardTransition><StoriesSection /></CardTransition>
       <CardTransition><EventsSection /></CardTransition>
       <CardTransition><ConsultationCta /></CardTransition>

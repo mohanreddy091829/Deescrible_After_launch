@@ -48,7 +48,7 @@ export function StoriesSection() {
     <section id="ideas" ref={root} className="relative overflow-hidden bg-[#F8ECE2] py-16 sm:py-24" aria-labelledby="ideas-title">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <div data-s="rise" className="mb-10 max-w-2xl sm:mb-14">
-          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">05 / Ideas &amp; beyond</p>
+          <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#6B645D]">06 / Ideas &amp; beyond</p>
           <h2 id="ideas-title" className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.02] tracking-[-0.03em] text-[#141211]">
             Ideas and beyond
           </h2>
