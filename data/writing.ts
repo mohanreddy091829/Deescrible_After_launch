@@ -15,8 +15,18 @@ export const WRITING_LINKS = {
   substack: "https://substack.com/@deewithapen",
 };
 
-/** Newest first. */
+/** Newest first. Three from LinkedIn and everything she has published on Substack so far. */
 export const ARTICLES: Article[] = [
+  {
+    id: "bigger-than-your-circle",
+    platform: "Substack",
+    title: "The realisation that the world is bigger than your current circle",
+    excerpt: "Why we hold on to draining friendships, what they cost us, and how to make room for better ones.",
+    date: "2026-10-21",
+    url: "https://deewithapen.substack.com/p/the-people-you-keep-out-of-fear",
+    image: "/assets/writing/circle.webp",
+    imageAlt: "Cover of the Substack post about the world being bigger than your current circle",
+  },
   {
     id: "emotion-currency",
     platform: "Substack",
@@ -34,8 +44,8 @@ export const ARTICLES: Article[] = [
     excerpt: "People think celebrity branding is photoshoots, red carpets and big announcements. A compilation of practical learnings.",
     date: "2026-09-27",
     url: "https://www.linkedin.com/pulse/celebrity-branding-either-you-tell-your-story-someone-abbagani-z90pf",
-    image: "/assets/writing/celeb.webp",
-    imageAlt: "Cover of the LinkedIn article on celebrity branding",
+    image: "/assets/writing/celeb-branding.webp",
+    imageAlt: "Dedeepya with a film star at an evening event",
   },
   {
     id: "community-300k",
@@ -46,16 +56,6 @@ export const ARTICLES: Article[] = [
     url: "https://www.linkedin.com/pulse/i-built-community-300k-why-dedeepya-abbagani-ximqf",
     image: "/assets/writing/community.webp",
     imageAlt: "Cover of the LinkedIn article on building a community of 300K",
-  },
-  {
-    id: "california-burrito",
-    platform: "LinkedIn",
-    title: "California Burrito: an ode to “ideas need not be perfect but functional”",
-    excerpt: "From an idea born in Jaipur to a taco plate in Hyderabad.",
-    date: "2025-09-27",
-    url: "https://www.linkedin.com/pulse/california-burrito-ode-ideas-need-perfect-functional-abbagani-dsnec",
-    image: "/assets/writing/burrito.webp",
-    imageAlt: "Cover of the LinkedIn article on California Burrito",
   },
   {
     id: "belgian-waffle",

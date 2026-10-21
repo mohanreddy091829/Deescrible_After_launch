@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { ARTICLES, WRITING_LINKS } from "@/data/writing";
+import { ArticlesMobile } from "./ArticlesMobile";
 
 const fmt = (iso: string) => new Date(`${iso}T00:00:00`).toLocaleDateString("en-IN", { month: "short", year: "numeric" });
 
@@ -20,7 +21,9 @@ export function WritingSection() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <ArticlesMobile articles={ARTICLES} />
+
+        <ul className="hidden gap-4 sm:grid sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {ARTICLES.map((a) => (
             <li key={a.id} className="min-w-0">
               <a
@@ -56,7 +59,7 @@ export function WritingSection() {
           ))}
         </ul>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-8 hidden flex-wrap items-center gap-3 sm:flex">
           <span className="font-sans text-[14px] font-semibold text-[#141211]">More articles</span>
           {[["LinkedIn", WRITING_LINKS.linkedin], ["Substack", WRITING_LINKS.substack]].map(([l, u]) => (
             <a
