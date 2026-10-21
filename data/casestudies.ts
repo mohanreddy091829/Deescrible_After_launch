@@ -55,29 +55,24 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Across FMCG projects, I've worked on consumer research, regional-market articulation, advertising scripts, brand voice and campaign development, collaborating with agency and client teams to carry the thinking from research into creative execution.",
     ],
     stats: [
-      { value: "4", label: "National FMCG brands" },
+      { value: "4", label: "Lowe Lintas campaigns for South India" },
       { value: "2", label: "Agencies: Lowe Lintas, Curativity" },
     ],
     work: [
       {
         name: "Surf Excel",
-        meta: "Hindustan Unilever × Lowe Lintas, Mumbai",
+        meta: "Hindustan Unilever × MullenLowe Lintas, Mumbai",
         text: "Joined the team to support South Indian consumer research, articulation and the campaign mood board. When a late-stage voiceover issue threatened the timeline, I practised the voice modulation and recorded the vocals myself to protect the outcome.",
       },
       {
-        name: "Glow & Lovely",
-        meta: "Hindustan Unilever × Lowe Lintas",
-        text: "Shaped the brand voice and the look and feel of the ads for a major HUL beauty brand, helping the agency team decide how to tell the story and what is appropriate.",
-      },
-      {
-        name: "TRESemmé",
-        meta: "Hindustan Unilever × Lowe Lintas",
-        text: "Brand voice and the look and feel of the ads for a leading HUL haircare brand.",
+        name: "Glow & Lovely and TRESemmé",
+        meta: "Hindustan Unilever × MullenLowe Lintas, 2023 to 2024",
+        text: "Part of four campaigns for South Indian audiences, built for TVCs and digital-first platforms. Ran consumer research, wrote localised scripts and shaped brand voice and the look and feel of the ads, and presented concepts at the Hindustan Unilever head office.",
       },
       {
         name: "Aashirvaad masalas",
-        meta: "ITC × Curativity",
-        text: "Go-to-market stories for the new masala range, built around stories that break stereotypes and developed alongside a team of women.",
+        meta: "ITC × Curativity, August to October 2024",
+        text: "Handled the repositioning of Aashirvaad masalas, moving a vegetarian brand into the non-veg masala segment. Analysed customer behaviour with the agency, wrote a region-specific Telugu script with strong hooks, and advised on cultural accuracy in post-production, through several iterations to a completed pre-production.",
       },
     ],
     photos: [
@@ -96,7 +91,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "02",
     title: "Technology & B2B",
     headline: "Premium doesn’t have to be boring.",
-    skills: "Product messaging · Website and design rebuilds · Video podcast · AI-assisted content",
+    skills: "Product messaging · Website and design rebuilds · Video podcast · Thought leadership · AI-assisted content",
     intro: [
       "B2B buyers are people too. I work with technology and finance brands to turn complicated products into clear messaging, and to give serious companies a voice that people actually want to listen to.",
     ],
@@ -106,19 +101,24 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     work: [
       {
-        name: "Microsoft",
-        meta: "Freelance content strategist",
-        text: "Structured product messaging and e-commerce buyer-journey content across 11 international markets.",
+        name: "Qentelli",
+        meta: "Lead Content Strategist and Brand Voice Architect, since February 2025",
+        text: "Leading the revamp of the website, blog and case-study content for the global SaaS firm. Developed new brand guidelines, rewrote corporate narratives and tuned tone and messaging across channels, after an audit, using AI to handle much of the heavy lifting.",
       },
       {
         name: "Zenwork",
-        meta: "US fintech · Tax1099",
-        text: "Rebuilt the website, design and communication in six months, and launched the CPA Transformation Podcast, a video series with US finance leaders.",
+        meta: "SaaS and fintech, July to December 2024",
+        text: "Built multi-channel content strategy across LinkedIn, blogs, YouTube and social, ran ad campaigns for B2B SaaS products, and wrote thought-leadership articles and whitepapers. Rebuilt the website, design and communication, and launched the CPA Transformation Podcast with US finance leaders: guest research, scripts, episode structure, trailers and teasers.",
       },
       {
-        name: "Qentelli",
-        meta: "Technology services",
-        text: "Rebuilt the company website after an audit, using AI to handle much of the heavy lifting.",
+        name: "Microsoft",
+        meta: "Contract content strategist, 2022",
+        text: "Launched shopping pages on WebXT and Edge and structured product messaging and buyer-journey content across 11 international markets, researching customer behaviour and purchase patterns in each.",
+      },
+      {
+        name: "Spectraforce",
+        meta: "UX copywriter and campaign strategist, March to April 2024",
+        text: "Wrote interactive, conversational web content for the launch of a new community initiative and designed the flow and structure of its campaigns.",
       },
     ],
     photos: [
@@ -198,9 +198,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         text: "Positioning and public communication for one of South India’s biggest film families, including launch work.",
       },
       {
-        name: "Founder and executive positioning",
-        meta: "Startup founder · Chief Digital Officer",
-        text: "Personal brand strategy for the founder of Lifespan and for Qentelli’s Chief Digital Officer, shaping how each is seen, heard and understood.",
+        name: "Lifespan health & wellness",
+        meta: "Brand revamp, September to November 2024",
+        text: "Built the marketing strategy for the retail business, handled influencer marketing and PR, and led the personal branding of the founder.",
+      },
+      {
+        name: "Qentelli leadership",
+        meta: "Chief Digital Officer",
+        text: "Positioning and public communication for the Chief Digital Officer, alongside the company’s brand and content revamp.",
       },
       {
         name: "Political leadership",
@@ -268,7 +273,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "06",
     title: "Political Strategy & Events",
     headline: "Campaigns and events at national scale.",
-    skills: "Campaign design · Speechwriting · Event production · Government communications",
+    skills: "Campaign design · Speechwriting · Event content · Government communications",
     intro: [
       "I moved into politics early in my career, shaping messages, speeches and the narrative behind public leaders. Campaigns and events leave no room for rehearsal, so the work is as much logistics and judgement as it is communication.",
     ],
@@ -279,9 +284,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         text: "Took over campaign design mid-election, when the strategy team stepped back, and the campaign won.",
       },
       {
-        name: "National-level events",
-        meta: "Prime Minister, Home Minister and Defence Minister",
-        text: "Ran events for the Prime Minister, Home Minister and Defence Minister, handling labour, permissions, communications and media.",
+        name: "Events with the Prime Minister",
+        meta: "Access Events, 2022 to 2024",
+        text: "Secured and managed central government projects, with content strategy for three mega events with the Prime Minister, covering brochures, social media and video.",
+      },
+      {
+        name: "Home and Defence Ministry events",
+        meta: "Access Events",
+        text: "Media content for events with the Home Minister and the Defence Minister, handling labour, permissions, communications and media, and coordinating with the Special Protection Group and central forces for secure delivery.",
       },
       {
         name: "Public programmes",
