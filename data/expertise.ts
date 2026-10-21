@@ -42,9 +42,9 @@ export const EXPERTISE_PILLARS: ExpertisePillar[] = [
     title: "Personal and celebrity branding",
     oneLiner: "Helping leaders be seen, heard and understood.",
     text: "Positioning and public communication for one of South India's biggest film families, a startup founder and a Chief Digital Officer, plus speeches and articles for a politician. The lessons are written up in a LinkedIn article.",
-    image: "/assets/expertise/personal-branding-camera.webp",
-    focus: "62% 30%",
-    imageAlt: "Dedeepya photographing at Subah-e-Banaras, camera in hand",
+    image: "/assets/expertise/personal-branding-celeb.webp",
+    focus: "50% 12%",
+    imageAlt: "Dedeepya with a film star at an evening event",
     credit: { title: "Gooseneck microphone on podium with stage bokeh lights", author: "A S M Jobaer", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Gooseneck_microphone_on_podium_with_stage_bokeh_lights.jpg" },
   },
   {
