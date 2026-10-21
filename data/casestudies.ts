@@ -115,7 +115,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       { src: "/assets/casestudies/surf-script.webp", alt: "Surf Excel script with Telugu lines and their English back-translation", caption: "Surf Excel script, with the Telugu lines and English back-translation", ratio: 900 / 600 },
       { src: "/assets/casestudies/surf-script-vo.webp", alt: "Surf Excel voiceover lines in Hindi, Telugu and English", caption: "Voiceover lines in Hindi, Telugu and English", ratio: 1200 / 582 },
       { src: "/assets/casestudies/surf-storyboard.webp", alt: "Surf Excel storyboard frames with Telugu and Hindi super text", caption: "Storyboard frames with Telugu super text", ratio: 1050 / 1110 },
-      { src: "/assets/expertise/fmcg-studio.webp", alt: "Dedeepya recording a voiceover in a studio", caption: "Recording the Surf Excel voiceover", focus: "68% 36%" },
     ],
     links: [
       { kind: "LinkedIn", label: "India didn’t need another dessert: how Belgian Waffle Co. built a ₹100 Cr brand", url: "https://www.linkedin.com/pulse/india-didnt-need-another-dessert-built-100-cr-brand-anyway-abbagani-8roqc" },
@@ -173,7 +172,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     photos: [
       { src: "/assets/stories/cpa-podcast.webp", alt: "CPA Transformation Podcast, Season 1, episode 1 poster with two guests", caption: "CPA Transformation Podcast, Season 1", focus: "50% 50%" },
-      { src: "/assets/expertise/b2b-corporate.webp", alt: "Dedeepya walking through a corporate campus", focus: "50% 16%" },
     ],
     links: [
       { kind: "YouTube", label: "CPA Transformation Podcast, full playlist", url: "https://www.youtube.com/playlist?list=PLECTqeR-CSIRRsThS5QvOZ3sbrsw5HXht" },
@@ -269,17 +267,15 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
-      { src: "/assets/casestudies/celeb-1.webp", alt: "Dedeepya with a film star at an event", focus: "50% 25%" },
-      { src: "/assets/casestudies/celeb-2.webp", alt: "Dedeepya with a film star at a celebration", focus: "50% 25%" },
-      { src: "/assets/casestudies/celeb-4.webp", alt: "Dedeepya at an evening event", focus: "50% 30%" },
+      { src: "/assets/casestudies/celeb-2-trim.webp", alt: "Dedeepya with a film star at a celebration", focus: "50% 25%" },
       { src: "/assets/casestudies/celeb-3.webp", alt: "Dedeepya at a styled event venue", focus: "50% 40%" },
     ],
     links: [
       { kind: "LinkedIn", label: "Celebrity Branding: either you tell your story, or someone else will", url: "https://www.linkedin.com/pulse/celebrity-branding-either-you-tell-your-story-someone-abbagani-z90pf" },
     ],
-    cover: "/assets/casestudies/celeb-1.webp",
-    coverAlt: "Dedeepya with a film star at an event",
-    focus: "50% 22%",
+    cover: "/assets/casestudies/celeb-4.webp",
+    coverAlt: "Dedeepya with a film star at an evening event",
+    focus: "50% 28%",
   },
   {
     id: "community-speaking",
@@ -308,7 +304,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
-      { src: "/assets/stories/tedx-stage.webp", alt: "Dedeepya speaking on stage at TEDxVVITU", caption: "TEDxVVITU, Guntur", focus: "50% 70%" },
       { src: "/assets/stories/panel-discussion.webp", alt: "Dedeepya in a panel discussion with four other speakers", caption: "Panel discussion", focus: "22% 55%" },
       { src: "/assets/casestudies/women-2.webp", alt: "Dedeepya speaking at a Deescribble meetup for women", focus: "50% 45%" },
       { src: "/assets/casestudies/women-3.webp", alt: "Dedeepya with a microphone among attendees at a meetup", focus: "50% 40%" },
@@ -359,7 +354,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       { src: "/assets/casestudies/political-drummers.webp", alt: "Dedeepya standing with a group of drummers at an event ground", caption: "With the performers on event day", focus: "50% 35%" },
       { src: "/assets/casestudies/political-stage.webp", alt: "Officials on a flower-decorated stage at a government event", focus: "50% 40%" },
       { src: "/assets/casestudies/political-crowd.webp", alt: "Leaders and supporters at a public programme", focus: "50% 40%" },
-      { src: "/assets/work/political-event.webp", alt: "Dedeepya at a national government event with an official in the backdrop", focus: "50% 22%" },
     ],
     links: [],
     cover: "/assets/work/political-event.webp",
