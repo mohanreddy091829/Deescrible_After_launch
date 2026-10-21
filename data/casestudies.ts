@@ -138,8 +138,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     work: [
       {
         name: "Qentelli",
-        meta: "Lead Content Strategist and Brand Voice Architect, since February 2025",
-        text: "Leading the revamp of the website, blog and case-study content for the global SaaS firm. Developed new brand guidelines, rewrote corporate narratives and tuned tone and messaging across channels, after an audit, using AI to handle much of the heavy lifting.",
+        meta: "Lead Content Strategist and Brand Voice Architect, February to December 2025",
+        text: "Led the revamp of the website, blog and case-study content for the global SaaS firm. Developed new brand guidelines, rewrote corporate narratives and tuned tone and messaging across channels, after an audit, using AI to handle much of the heavy lifting.",
       },
       {
         name: "Zenwork",
@@ -152,6 +152,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: [
           "Worked on the e-commerce discovery ecosystem for Microsoft's WebXT division across 11 global markets. Curated, categorised and audited high-volume retail data feeds to train AI-driven shopping modules for Bing and Microsoft Edge, keeping product taxonomy localised and data quality strict across borders, so that users stayed engaged and merchant information stayed accurate.",
           "Partnered with engineering workflows to refine content extraction pipelines, turning raw product data into visually rich, intuitive regional shopping pages built to convert.",
+        ],
+      },
+      {
+        name: "RunSurf.co",
+        meta: "Brand Strategy & GTM Consultant, 1-month consulting engagement",
+        body: [
+          "Defined the brand language and tone of voice to establish a consistent brand identity, and structured the social media approach, including content direction and platform communication.",
+          "Contributed to the brand’s go-to-market foundation through strategic messaging and communication planning.",
         ],
       },
       {
@@ -199,6 +207,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         text: "Learnings from work and life, including a short LinkedIn series. Several episodes sit among the most saved and most shared content on the account.",
       },
       {
+        name: "The content approach",
+        meta: "Founder and Content Strategist",
+        body: [
+          "Content built around careers, professional life and emotional wellbeing, combining workplace understanding with an empathetic, relatable voice. Audience understanding shapes the topics, formats, narratives and distribution.",
+          "AI-assisted translation extends regional-language storytelling to audiences beyond the original language market.",
+        ],
+      },
+      {
         name: "Audience",
         meta: "Instagram Insights, 11 Jul to 8 Oct",
         text: "1.85M viewers in the period, with about 79.5% of views coming from followers and the rest from people who had not followed yet.",
@@ -232,9 +248,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     work: [
       {
-        name: "Film family branding",
-        meta: "South Indian film industry",
-        text: "Positioning and public communication for one of South India’s biggest film families, including launch work.",
+        name: "Allu Nayanika Reddy",
+        meta: "Personal Branding Consultant, 1-month consulting engagement",
+        body: [
+          "Consulted on personal branding and public-facing communication ahead of a major launch into the Allu family’s public spotlight.",
+          "Shaped the tone, narrative and communication direction of the personal brand, to support a clear, consistent public identity.",
+        ],
       },
       {
         name: "Lifespan health & wellness",
