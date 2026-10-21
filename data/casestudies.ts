@@ -24,8 +24,10 @@ export interface CasePhoto {
   caption?: string;
   /** CSS object-position for the crop. */
   focus?: string;
-  /** Width divided by height. Screenshots and documents carry their own shape so nothing is cropped; photos default to 4/3. */
-  ratio?: number;
+  /** Documents and screenshots are shown whole instead of cropped to the tile. */
+  fit?: "contain";
+  /** Tall first tile that spans two rows beside two stacked photos. */
+  feature?: boolean;
 }
 
 export interface CaseStudy {
@@ -112,9 +114,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
-      { src: "/assets/casestudies/surf-script.webp", alt: "Surf Excel script with Telugu lines and their English back-translation", caption: "Surf Excel script, with the Telugu lines and English back-translation", ratio: 900 / 600 },
-      { src: "/assets/casestudies/surf-script-vo.webp", alt: "Surf Excel voiceover lines in Hindi, Telugu and English", caption: "Voiceover lines in Hindi, Telugu and English", ratio: 1200 / 582 },
-      { src: "/assets/casestudies/surf-storyboard.webp", alt: "Surf Excel storyboard frames with Telugu and Hindi super text", caption: "Storyboard frames with Telugu super text", ratio: 1050 / 1110 },
+      { src: "/assets/casestudies/surf-script.webp", alt: "Surf Excel script with Telugu lines and their English back-translation", caption: "Surf Excel script, with the Telugu lines and English back-translation", fit: "contain" },
+      { src: "/assets/casestudies/surf-script-vo.webp", alt: "Surf Excel voiceover lines in Hindi, Telugu and English", caption: "Voiceover lines in Hindi, Telugu and English", fit: "contain" },
+      { src: "/assets/casestudies/surf-storyboard.webp", alt: "Surf Excel storyboard frames with Telugu and Hindi super text", caption: "Storyboard frames with Telugu super text", fit: "contain" },
     ],
     links: [
       { kind: "LinkedIn", label: "India didn’t need another dessert: how Belgian Waffle Co. built a ₹100 Cr brand", url: "https://www.linkedin.com/pulse/india-didnt-need-another-dessert-built-100-cr-brand-anyway-abbagani-8roqc" },
@@ -171,6 +173,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
+      { src: "/assets/casestudies/qentelli-event.webp", alt: "Dedeepya with a Qentelli colleague beside an Ambitious Futures banner", caption: "At a Qentelli event", focus: "50% 20%" },
       { src: "/assets/stories/cpa-podcast.webp", alt: "CPA Transformation Podcast, Season 1, episode 1 poster with two guests", caption: "CPA Transformation Podcast, Season 1", focus: "50% 50%" },
     ],
     links: [
@@ -217,9 +220,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
-      { src: "/assets/casestudies/dee-insights.webp", alt: "Instagram Insights content ranking by views, led by Dee-coding Varanasi episodes", caption: "Top content by views", ratio: 1000 / 1407 },
-      { src: "/assets/casestudies/dee-varanasi-1.webp", alt: "Dedeepya in a pink saree in a Varanasi lane", caption: "Filming in Varanasi", focus: "50% 30%" },
-      { src: "/assets/casestudies/dee-varanasi-2.webp", alt: "Dedeepya sitting on the ghat steps in Varanasi", caption: "Kashi ghats", focus: "50% 40%" },
+      { src: "/assets/casestudies/dee-insights.webp", alt: "Instagram Insights content ranking by views, led by Dee-coding Varanasi episodes", caption: "Top content by views", feature: true, focus: "50% 0%" },
+      { src: "/assets/casestudies/dee-varanasi-1.webp", alt: "Dedeepya in a pink saree in a Varanasi lane", caption: "Varanasi", focus: "50% 30%" },
+      { src: "/assets/casestudies/dee-on-location.webp", alt: "Dedeepya sitting on a sandy riverbank while a colleague films", caption: "On location", focus: "50% 55%" },
     ],
     links: [
       { kind: "LinkedIn", label: "I built a community of 300K.. but why?", url: "https://www.linkedin.com/pulse/i-built-community-300k-why-dedeepya-abbagani-ximqf" },
@@ -306,7 +309,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     photos: [
       { src: "/assets/stories/panel-discussion.webp", alt: "Dedeepya in a panel discussion with four other speakers", caption: "Panel discussion", focus: "22% 55%" },
       { src: "/assets/casestudies/women-2.webp", alt: "Dedeepya speaking at a Deescribble meetup for women", focus: "50% 45%" },
-      { src: "/assets/casestudies/women-3.webp", alt: "Dedeepya with a microphone among attendees at a meetup", focus: "50% 40%" },
       { src: "/assets/casestudies/women-1.webp", alt: "Dedeepya listening at a community gathering", focus: "50% 40%" },
       { src: "/assets/casestudies/women-4.webp", alt: "Dedeepya celebrating with women at a community event", focus: "50% 40%" },
     ],
