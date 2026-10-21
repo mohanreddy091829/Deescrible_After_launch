@@ -2,7 +2,14 @@ export interface CaseWork {
   name: string;
   /** Client, agency or format, in one short line. */
   meta: string;
-  text: string;
+  /** Italic line naming the kind of work. */
+  subtitle?: string;
+  /** One short paragraph, or several in `body`. */
+  text?: string;
+  body?: string[];
+  contribution?: string[];
+  /** The "What this project demonstrates" line. */
+  shows?: string;
 }
 
 export interface CaseLink {
@@ -48,31 +55,60 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: "fmcg",
     number: "01",
     title: "FMCG & Consumer Strategy",
-    headline: "Understanding the consumer. Getting the story right.",
+    headline: "Understanding the consumer, getting the story right.",
     skills: "Consumer research · Brand positioning · Campaign storytelling · Regional go-to-market",
     intro: [
       "I work at the intersection of consumer understanding and brand communication. My role is to understand the audience, identify what matters to them and translate that understanding into messaging, stories and creative direction.",
-      "Across FMCG projects, I've worked on consumer research, regional-market articulation, advertising scripts, brand voice and campaign development, collaborating with agency and client teams to carry the thinking from research into creative execution.",
+      "Across FMCG projects, I've worked on consumer research, regional-market articulation, advertising scripts, brand voice and campaign development. The work has involved collaborating with agency and client teams to carry the thinking from research into creative execution.",
     ],
     stats: [
-      { value: "4", label: "Lowe Lintas campaigns for South India" },
-      { value: "2", label: "Agencies: Lowe Lintas, Curativity" },
+      { value: "4", label: "Advertising projects through Lowe Lintas" },
     ],
     work: [
       {
         name: "Surf Excel",
-        meta: "Hindustan Unilever × MullenLowe Lintas, Mumbai",
-        text: "Joined the team to support South Indian consumer research, articulation and the campaign mood board. When a late-stage voiceover issue threatened the timeline, I practised the voice modulation and recorded the vocals myself to protect the outcome.",
+        meta: "Hindustan Unilever × Lowe Lintas",
+        subtitle: "Consumer research, creative articulation and campaign development",
+        body: [
+          "The assignment involved understanding South Indian consumers and translating those insights into creative inputs for a Surf Excel campaign.",
+          "I worked on consumer research, regional articulation and the campaign mood board, travelling across Tirupati, Vijayawada, Guntur and Hyderabad as part of the research. I also worked with the wider team through creative development, including animatics, narramatics and pre-production.",
+          "The work meant connecting what we learnt about consumers with the way the campaign was developed and communicated. Research had to become something the creative team could actually use.",
+          "During a late-stage execution challenge, I also recorded vocals when the project needed an immediate solution. It was a practical reminder that the work doesn't always stop at the boundaries of a job description.",
+        ],
+        contribution: [
+          "South Indian consumer research and regional articulation.",
+          "Inputs for campaign storytelling and mood-board development.",
+          "Collaboration on creative iterations and pre-production.",
+          "Vocal recording to support an urgent execution requirement.",
+        ],
+        shows: "Connecting consumer insight to creative decisions, and staying accountable to the work through execution.",
       },
       {
         name: "Glow & Lovely and TRESemmé",
-        meta: "Hindustan Unilever × MullenLowe Lintas, 2023 to 2024",
-        text: "Part of four campaigns for South Indian audiences, built for TVCs and digital-first platforms. Ran consumer research, wrote localised scripts and shaped brand voice and the look and feel of the ads, and presented concepts at the Hindustan Unilever head office.",
+        meta: "Hindustan Unilever × Lowe Lintas",
+        subtitle: "Brand voice, regional communication and advertising scripts",
+        body: [
+          "Through Lowe Lintas, I worked on four advertising projects involving consumer research, regional-market articulation and campaign storytelling for HUL brands, including Glow & Lovely and TRESemmé.",
+          "The work involved developing and refining scripts, working with the agency team on animatics and pre-production, and contributing to how the campaign narrative was articulated for South Indian audiences.",
+          "I also presented campaign concepts at HUL's head office and worked through feedback and iterations with the wider team.",
+          "The focus was to make the communication work for the intended audience while staying true to the brand's requirements and creative direction.",
+        ],
+        contribution: [
+          "Consumer research and regional-market understanding.",
+          "Script development and creative articulation.",
+          "Inputs on campaign look and feel and brand voice.",
+          "Collaboration through creative development and stakeholder feedback.",
+        ],
       },
       {
-        name: "Aashirvaad masalas",
-        meta: "ITC × Curativity, August to October 2024",
-        text: "Handled the repositioning of Aashirvaad masalas, moving a vegetarian brand into the non-veg masala segment. Analysed customer behaviour with the agency, wrote a region-specific Telugu script with strong hooks, and advised on cultural accuracy in post-production, through several iterations to a completed pre-production.",
+        name: "ITC Aashirvaad MasterChef Masalas",
+        meta: "Curativity",
+        subtitle: "Brand positioning, consumer research and regional go-to-market",
+        body: [
+          "The assignment focused on repositioning Aashirvaad Masalas for the non-vegetarian masala segment and developing a campaign narrative for the Telugu market.",
+          "My role involved understanding the regional consumer context, developing the storyline and translating that thinking into advertising communication.",
+          "The work included a Telugu-market script informed by consumer behaviour, and regional input during post-production.",
+        ],
       },
     ],
     photos: [
@@ -111,9 +147,12 @@ export const CASE_STUDIES: CaseStudy[] = [
         text: "Built multi-channel content strategy across LinkedIn, blogs, YouTube and social, ran ad campaigns for B2B SaaS products, and wrote thought-leadership articles and whitepapers. Rebuilt the website, design and communication, and launched the CPA Transformation Podcast with US finance leaders: guest research, scripts, episode structure, trailers and teasers.",
       },
       {
-        name: "Microsoft",
-        meta: "Contract content strategist, 2022",
-        text: "Launched shopping pages on WebXT and Edge and structured product messaging and buyer-journey content across 11 international markets, researching customer behaviour and purchase patterns in each.",
+        name: "Microsoft WebXT Shopping",
+        meta: "Content Curator (Contract)",
+        body: [
+          "Worked on the e-commerce discovery ecosystem for Microsoft's WebXT division across 11 global markets. Curated, categorised and audited high-volume retail data feeds to train AI-driven shopping modules for Bing and Microsoft Edge, keeping product taxonomy localised and data quality strict across borders, so that users stayed engaged and merchant information stayed accurate.",
+          "Partnered with engineering workflows to refine content extraction pipelines, turning raw product data into visually rich, intuitive regional shopping pages built to convert.",
+        ],
       },
       {
         name: "Spectraforce",

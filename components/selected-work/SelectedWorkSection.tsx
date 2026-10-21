@@ -123,7 +123,29 @@ export function SelectedWorkSection() {
                     <li key={w.name} className="py-4">
                       <h4 className="font-serif text-[22px] leading-tight tracking-[-0.02em] text-[#141211]">{w.name}</h4>
                       <p className="mt-0.5 font-mono text-[11.5px] tracking-[0.04em] text-[#6B645D]">{w.meta}</p>
-                      <p className="mt-2 font-sans text-[15px] leading-relaxed text-[#2E2926]">{w.text}</p>
+                      {w.subtitle && <p className="mt-2 font-sans text-[15px] italic leading-snug text-[#4a423d]">{w.subtitle}</p>}
+                      {[...(w.text ? [w.text] : []), ...(w.body ?? [])].map((t) => (
+                        <p key={t} className="mt-3 font-sans text-[15px] leading-relaxed text-[#2E2926] first:mt-2">{t}</p>
+                      ))}
+                      {w.contribution && (
+                        <div className="mt-4">
+                          <p className="font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6B645D]">My contribution</p>
+                          <ul className="mt-2 space-y-1.5">
+                            {w.contribution.map((c) => (
+                              <li key={c} className="flex gap-2.5 font-sans text-[15px] leading-relaxed text-[#2E2926]">
+                                <span aria-hidden="true" className="mt-[0.7em] h-1 w-1 shrink-0 rounded-full bg-[#A51C27]" />
+                                <span>{c}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {w.shows && (
+                        <p className="mt-4 font-sans text-[15px] leading-relaxed text-[#2E2926]">
+                          <span className="font-bold text-[#141211]">What this project demonstrates: </span>
+                          {w.shows}
+                        </p>
+                      )}
                     </li>
                   ))}
                 </ul>
