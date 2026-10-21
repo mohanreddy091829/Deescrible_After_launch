@@ -24,8 +24,8 @@ export interface CasePhoto {
   caption?: string;
   /** CSS object-position for the crop. */
   focus?: string;
-  /** Phone screenshots keep their tall shape instead of being cropped. */
-  tall?: boolean;
+  /** Width divided by height. Screenshots and documents carry their own shape so nothing is cropped; photos default to 4/3. */
+  ratio?: number;
 }
 
 export interface CaseStudy {
@@ -112,6 +112,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     photos: [
+      { src: "/assets/casestudies/surf-script.webp", alt: "Surf Excel script with Telugu lines and their English back-translation", caption: "Surf Excel script, with the Telugu lines and English back-translation", ratio: 900 / 600 },
+      { src: "/assets/casestudies/surf-script-vo.webp", alt: "Surf Excel voiceover lines in Hindi, Telugu and English", caption: "Voiceover lines in Hindi, Telugu and English", ratio: 1200 / 582 },
+      { src: "/assets/casestudies/surf-storyboard.webp", alt: "Surf Excel storyboard frames with Telugu and Hindi super text", caption: "Storyboard frames with Telugu super text", ratio: 1050 / 1110 },
       { src: "/assets/expertise/fmcg-studio.webp", alt: "Dedeepya recording a voiceover in a studio", caption: "Recording the Surf Excel voiceover", focus: "68% 36%" },
     ],
     links: [
@@ -214,15 +217,9 @@ export const CASE_STUDIES: CaseStudy[] = [
           "AI-assisted translation extends regional-language storytelling to audiences beyond the original language market.",
         ],
       },
-      {
-        name: "Audience",
-        meta: "Instagram Insights, 11 Jul to 8 Oct",
-        text: "1.85M viewers in the period, with about 79.5% of views coming from followers and the rest from people who had not followed yet.",
-      },
     ],
     photos: [
-      { src: "/assets/casestudies/dee-insights-views.webp", alt: "Instagram Insights content ranking by views, led by Dee-coding Varanasi episodes", caption: "Top content by views", tall: true },
-      { src: "/assets/casestudies/dee-insights-reposts.webp", alt: "Instagram Insights content ranking by reposts", caption: "Top content by reposts", tall: true },
+      { src: "/assets/casestudies/dee-insights.webp", alt: "Instagram Insights content ranking by views, led by Dee-coding Varanasi episodes", caption: "Top content by views", ratio: 1000 / 1407 },
       { src: "/assets/casestudies/dee-varanasi-1.webp", alt: "Dedeepya in a pink saree in a Varanasi lane", caption: "Filming in Varanasi", focus: "50% 30%" },
       { src: "/assets/casestudies/dee-varanasi-2.webp", alt: "Dedeepya sitting on the ghat steps in Varanasi", caption: "Kashi ghats", focus: "50% 40%" },
     ],

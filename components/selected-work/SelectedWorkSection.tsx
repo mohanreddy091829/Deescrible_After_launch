@@ -154,21 +154,21 @@ export function SelectedWorkSection() {
               {selected.photos.length > 0 && (
                 <div>
                   <p className="mb-3 font-sans text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6B645D]">Proof of work</p>
-                  <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                  <ul className="columns-2 gap-2.5 sm:columns-3">
                     {selected.photos.map((p) => (
-                      <li key={p.src} className={p.tall ? "row-span-2" : ""}>
-                        <figure className="relative">
-                          <div className={`relative w-full overflow-hidden rounded-xl bg-[#F1DFD2] ${p.tall ? "aspect-[9/18]" : "aspect-[4/3]"}`}>
+                      <li key={p.src} className="mb-2.5 break-inside-avoid">
+                        <figure>
+                          <a href={p.src} target="_blank" rel="noopener noreferrer" aria-label={`Open full size: ${p.alt}`} className="relative block w-full overflow-hidden rounded-xl bg-[#F1DFD2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A51C27]" style={{ aspectRatio: p.ratio ?? 4 / 3 }}>
                             <Image
                               src={p.src}
                               alt={p.alt}
                               fill
                               quality={85}
                               sizes="(max-width: 639px) 45vw, 270px"
-                              className={p.tall ? "object-cover object-top" : "object-cover"}
-                              style={p.focus && !p.tall ? { objectPosition: p.focus } : undefined}
+                              className="object-cover"
+                              style={p.focus ? { objectPosition: p.focus } : undefined}
                             />
-                          </div>
+                          </a>
                           {p.caption && <figcaption className="mt-1.5 font-sans text-[12px] leading-snug text-[#5A524B]">{p.caption}</figcaption>}
                         </figure>
                       </li>
